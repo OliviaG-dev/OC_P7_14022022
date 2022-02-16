@@ -54,14 +54,23 @@ table {
 header {
     display: flex;
     width: 100%;
-    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
 .logo {
-    width: 15rem;
-    margin-top: 2rem;
+    width: 3.5rem;
+    margin-top: 3rem;
 }
 
+.logo__title {
+    font-family: 'DM Sans', sans-serif;
+    margin-top: 0.4rem;
+    font-size: 2.25em;
+    color: #D04F4F;
+}
+
+/* --------------------------------Main-------------------------------------- */
 
 main {
     display: flex;
@@ -70,16 +79,63 @@ main {
     font-family: 'Lato', sans-serif;
 }
 
+/* -------------------Search Bar---------------------- */
 #search {
     width: 85vw;
     height: 4.3rem;
     padding-left: 1.5rem;
     border-radius: 0.5rem;
     background-color: #E7E7E7;
-    font-size: 1.125rem;
+    font-size: 1.125em;
     background-image: url(./assets/loupe\ search.png);
     background-repeat: no-repeat;
     background-position: 99% 50%;
     background-size: 2rem;
+    border: none;
+}
+
+/* -------------------Categories---------------------- */
+
+.search__categories {
+    display: flex;
+    margin-top: 0.93rem;
+    flex-wrap: wrap;
+}
+
+
+
+.appliances__button, .ingredients__button, .ustensils__button {
+    width: 10.6rem;
+    height: 4.3rem;
+    border-radius: 0.3rem;
+    color: #FFFFFF;
+    margin-right: 0.8rem;
+    margin-bottom: 0.8rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 0.5rem;
+    font-size: 1.12em;
+    font-weight: 700;
+}
+
+.appliances__button, .appliances__button--btn {
+    background-color: #68D9A4;
+}
+
+.ingredients__button, .ingredients__button--btn {
+    background-color: #3282F7;
+}
+
+.ustensils__button, .ustensils__button--btn {
+    background-color: #ED6454;
+}
+
+.ingredients__button--btn, .appliances__button--btn, .ustensils__button--btn {
+    height: 2rem;
+    width: 4rem;
+    background-image: url(./assets/Chevrons-btn.png);
+    background-repeat: no-repeat;
+    background-position: 50%;
     border: none;
 }

@@ -7,21 +7,83 @@
     <meta name="description" content="Les petits plats, un site de recettes de cuisine">
     <link rel="icon" type="image/png" sizes="16x16" href="./assets/logo title.png">
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
     <title> Les petits plats </title>
 </head>
 <body>
     <header>
-        <img class="logo" src="./assets/logo.png" alt="Logo du site les petits plats">
+        <img class="logo" src="./assets/logo title.png" alt="Logo du site les petits plats">
+        <h1 class="logo__title">Les petits plats</h1>
     </header>
 
     <main>
-        <section class="search__wrapper">
-            <label for="search"></label>
-            <input type="search" id="search" placeholder="Rechercher une recette">
+        <section class="search">
+
+            <div class="search__bar">
+                <label for="search"></label>
+                <input type="search" id="search" placeholder="Rechercher une recette">
+            </div>
+
+            <div class="search__tags"></div>
+            
+            <!----------------- Recherche par catégories --------------------------------->
+            <div class="search__categories">
+
+                <!----------- Catégorie Ingrédients --------------------------------->
+                <div class="categories__ingredients">
+                    <div class="ingredients__button">
+                        <div class="ingredients__button--container">Ingredients</div>
+                        <button class="ingredients__button--btn"></button>
+                    </div>
+                    <ul class="ingredients__list">
+                        <li class="ingredients__list__item"></li>
+                    </ul>
+                </div>
+
+                <!----------- Catégorie Appliances --------------------------------->
+                <div class="categories__appliances">
+                    <div class="appliances__button">
+                        <div class="appliances__button--container">Appareils</div>
+                        <button class="appliances__button--btn"></button>
+                    </div>
+                    <ul class="appliances__list">
+                        <li class="appliances__list__item"></li>
+                    </ul>
+                </div>
+
+                <!----------- Catégorie Ustensils --------------------------------->
+                <div class="categories__ustensils">
+                    <div class="ustensils__button">
+                        <div class="ustensils__button--container">Ustensiles</div>
+                        <button class="ustensils__button--btn"></button>
+                    </div>
+                    <ul class="ustensils__list">
+                        <li class="ustensils__list__item"></li>
+                    </ul>
+                </div>
+            </div>
         </section>
+        
+        <!----------------- Vignettes de recette --------------------------------->
+        <section class="section__recipes">
+            <article class="recipe__container">
+                <div class="recipe__picture"></div>
+                <div class="recipe__details">
+                    <h2 class="recipe__details--name"></h2>
+                    <span class="recipe__details--time"></span>
+                    <ul class="recipe__details--ingredients">
+                        <li>
+                            <span></span>
+                            <p></p>
+                        </li>
+                    </ul>
+                    <p class="recipe__details--preperation"></p>
+                </div>
+            </article>
+        </section>
+
     </main>
 
-    <script src="index.js"></script>
+    <script src="index.js" type="module"></script>
 </body>
 </html>
