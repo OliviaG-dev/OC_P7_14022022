@@ -112,38 +112,69 @@ main {
     flex-wrap: wrap;
 }
 
+.search__categories .ingredients__button--container::placeholder {
+    color: #ffffff;
+}
+
+.search__categories .appliances__button--container::placeholder {
+    color: #ffffff;
+}
+
+.search__categories .ustensils__button--container::placeholder {
+    color: #ffffff;
+}
+
+.search__categories .ingredients__button--container:focus {
+    outline: none;
+}
+
+.search__categories .appliances__button--container:focus {
+    outline: none;
+}
+
+.search__categories .ustensils__button--container:focus {
+    outline: none;
+}
+
+.ingredients__button--container, .appliances__button--container, .ustensils__button--container {
+    width: 110px;
+    height: 35px;
+    border: none;
+    font-size: 1.12em;
+    font-weight: 700;
+    color: #FFFFFF;
+}
 
 
 .appliances__button, .ingredients__button, .ustensils__button {
     width: 10.6rem;
     height: 4.3rem;
     border-radius: 0.3rem;
-    color: #FFFFFF;
     margin-right: 0.8rem;
     margin-bottom: 0.8rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-left: 0.5rem;
+    padding-left: 1.8rem;
     font-size: 1.12em;
     font-weight: 700;
 }
 
-.appliances__button, .appliances__button--btn {
+.appliances__button, .appliances__button--btn, .appliances__button--container {
     background-color: #68D9A4;
 }
 
-.ingredients__button, .ingredients__button--btn {
+.ingredients__button, .ingredients__button--btn, .ingredients__button--container {
     background-color: #3282F7;
 }
 
-.ustensils__button, .ustensils__button--btn {
+.ustensils__button, .ustensils__button--btn, .ustensils__button--container {
     background-color: #ED6454;
 }
 
 .ingredients__button--btn, .appliances__button--btn, .ustensils__button--btn {
     height: 2rem;
-    width: 4rem;
+    width: 3rem;
     background-image: url(./assets/Chevrons-btn.png);
     background-repeat: no-repeat;
     background-position: 50%;

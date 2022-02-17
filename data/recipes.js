@@ -1,4 +1,4 @@
-const recipes = [
+export const recipes = [
     {
         "id": 1,
         "name" : "Limonade de Coco",
@@ -148,34 +148,34 @@ const recipes = [
         "name": "Tarte au thon",
         "servings": 4,
         "ingredients":[
-           {
-               "ingredient": "Pâte feuilletée",
-               "quantity": 1 
-           },
-           {
-               "ingredient": "Thon en miettes",
-               "quantity": 130,
-               "unit": "grammes"
-           },
-           {
+            {
+                "ingredient": "Pâte feuilletée",
+                "quantity": 1 
+            },
+            {
+                "ingredient": "Thon en miettes",
+                "quantity": 130,
+                "unit": "grammes"
+            },
+            {
                 "ingredient": "Tomate",
                 "quantity": 2
-           },
-           {
-               "ingredient": "Crème fraiche",
-               "quantity": 2,
-               "unit": "cuillères à soupe"
-           },
-           {
-               "ingredient": "gruyère râpé",
-               "quantity": 100,
-               "unit": "grammes"
-           },
-           {
+            },
+            {
+                "ingredient": "Crème fraiche",
+                "quantity": 2,
+                "unit": "cuillères à soupe"
+            },
+            {
+                "ingredient": "gruyère râpé",
+                "quantity": 100,
+                "unit": "grammes"
+            },
+            {
                 "ingredient": "Moutarde de Dijon",
                 "quantity": 1,
                 "unite": "cuillères à soupe"
-           }
+            }
         ],
         "time": 45,
         "description": "Etaler la pâte feuilleté aux dimensions du moule, étaler la moutarde sur la pâte feuilleté, ajouter le thon. Découper les tomates en rondelles et les poser sur le poisson, ajouter un peu de crème fraiche sur toute la tarte et recouvrez de gruyère râpé. Cuire au four 30 minutes",
@@ -258,36 +258,35 @@ const recipes = [
         "name": "Brownie",
         "servings": 10,
         "ingredients":[
-           {
+            {
                 "ingredient": "Noix",
                 "quantity": "180",
                 "unit": "grammes"
-           },
-           {
-               "ingredient": "Chocolat noir",
-               "quantity": 150,
-               "unit": "grammes"
-           },
-           {
-               "ingredient": "Beurre",
-               "quantity": 120,
-               "unit": "grammes"
-           },
-           {
+            },
+            {
+                "ingredient": "Chocolat noir",
+                "quantity": 150,
+                "unit": "grammes"
+            },
+            {
+                "ingredient": "Beurre",
+                "quantity": 120,
+                "unit": "grammes"
+            },
+            {
                 "ingredient": "Oeuf",
                 "quantity": 2
-           },
-           {
-               "ingredient": "Sucre en Poudre",
-               "quantity": "110",
-               "unit": "grammes"
-           },
-           {
+            },
+            {
+                "ingredient": "Sucre en Poudre",
+                "quantity": "110",
+                "unit": "grammes"
+            },
+            {
                 "ingredient": "farine",
                 "quantity": 90,
                 "unit": "grammes"
-           }
-
+            }
         ], 
         "time": 60,
         "description": "Hachez les noix grossièrement. Faire fondre le chocolat avec le beurre. Mélanger les oeuf et le sucre et mélanger au chocolat. Ajouter la farine. Mélanger afin d'avoir quelque chose d'homogène puis incorporer les noix. Verser la préparation dans un moule de préférence rectangulaire. Cuire 2O à 25 minutes à 180°. Sortez du four et attendez quelques minutes pour démouler. Servir avec une boule de glace pour plus de gourmandise.",
@@ -1723,4 +1722,4 @@ const recipes = [
         "appliance": "Four",
         "ustensils":["rouleau à patisserie","fouet"]
     }
-]
+];
