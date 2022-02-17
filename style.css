@@ -94,6 +94,16 @@ main {
     border: none;
 }
 
+#search::-webkit-search-cancel-button {
+    position:relative;
+    right: 3.75rem;    
+    -webkit-appearance: none;
+    height: 2.18rem;
+    width: 2.18rem;
+    background-image: url(./assets/close\ tag.svg);
+    background-repeat: no-repeat;
+    background-position: 50%;
+}
 /* -------------------Categories---------------------- */
 
 .search__categories {
