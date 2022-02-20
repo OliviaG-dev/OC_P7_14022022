@@ -1,5 +1,5 @@
 import { capitalizer, normalizer, unique  } from './helpers.js'
- 
+
 
 
 //fonction pour: répertorier les ingrédients et les trier par ordre alphabetique.
@@ -18,39 +18,65 @@ function createListOfIngredients(allRecipes) {
 
 // filter
 function cleanIngredients(listIngredients) {
-    console.log(listIngredients);
     const cleanIngredients = listIngredients.filter(unique)
     cleanIngredients.sort((a, b) => a.localeCompare(b))
-    console.log(cleanIngredients);
     return cleanIngredients
-    
 }
-//function filterIngredients = allIngredients.filter(unique)
-//filterIngredients.sort((a, b) => a.localeCompare(b))
-//console.log(filterIngredients);
-//return filterIngredients
 
- export function getAppliances(allRecipes) {
-    const allAppliances = []
-    allRecipes.forEach(recipe => {
-        allAppliances.push(recipe.appliance)
+//* ///////////////////////////////////////////////////////////////////////////////////////////////////////
+
+function createListOfAppliances(allRecipes) {
+    const listAppliances = []
+    allRecipes.forEach(recipe => {      
+            const normalizeAppliances = normalizer(recipe.appliance);
+            const appliance = capitalizer(normalizeAppliances);
+            listAppliances.push(appliance)
+        
     })
-    const uniqueAppliances = allAppliances.filter(unique)
-    uniqueAppliances.sort((a, b) => a.localeCompare(b))
-    //console.log(uniqueAppliances);
-    return uniqueAppliances
+    return listAppliances
+}
+
+function cleanAppliances(listAppliances) {
+    const cleanAppliances = listAppliances.filter(unique)
+    cleanAppliances.sort((a, b) => a.localeCompare(b))
+    return cleanAppliances
+}
+
+////* ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+function createListOfUstensils(allRecipes) {
+    const listUstensils = []
+
+    allRecipes.forEach(recipe => {
+        recipe.ustensils.forEach(ustensil => {
+            const normalizeUstensils = normalizer(ustensil);
+            const Ustensil = capitalizer(normalizeUstensils);
+            listUstensils.push(Ustensil)
+        })
+    })
+    return listUstensils
+}
+
+function cleanUstensils(listUstensils) {
+    const cleanUstensils = listUstensils.filter(unique)
+    cleanUstensils.sort((a, b) => a.localeCompare(b))
+    return cleanUstensils
+}
+
+//////* /////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+export function getIngredients(allRecipes) {
+    cleanIngredients(createListOfIngredients(allRecipes))   
+    console.log(cleanIngredients(createListOfIngredients(allRecipes)));
+}
+
+export function getAppliances(allRecipes) {
+    cleanAppliances(createListOfAppliances(allRecipes))
+    console.log(cleanAppliances(createListOfAppliances(allRecipes)));
 }
 
 export function getUstensils(allRecipes) {
-    const allUstensils = []
-    allRecipes.forEach(recipe => recipe.ustensils.forEach(ustensil => allUstensils.push(ustensil)))
-    const uniqueUstensils = allUstensils.filter(unique)
-    uniqueUstensils.sort((a, b) => a.localeCompare(b))
-    //console.log(uniqueUstensils);
-    return uniqueUstensils
-}
-
-export function getIngredients(allRecipes) {
-    cleanIngredients(createListOfIngredients(allRecipes))
-    
+    cleanUstensils(createListOfUstensils(allRecipes))
+    console.log(cleanUstensils(createListOfUstensils(allRecipes)));
 }
