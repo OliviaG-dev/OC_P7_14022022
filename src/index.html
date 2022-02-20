@@ -1,18 +1,22 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Les petits plats, un site de recettes de cuisine">
-    <link rel="icon" type="image/png" sizes="16x16" href="./assets/logo title.png">
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" sizes="16x16" href="./app/assets/logo title.png">
+    <link rel="stylesheet" href="./app/styles/reset.css">
+    <link rel="stylesheet" href="./app/styles/index.css">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@700&family=Lato:wght@400;700&display=swap"
+        rel="stylesheet">
     <title> Les petits plats </title>
 </head>
+
 <body>
     <header>
-        <img class="logo" src="./assets/logo title.png" alt="Logo du site les petits plats">
+        <img class="logo" src="./app/assets/logo title.png" alt="Logo du site les petits plats">
         <h1 class="logo__title">Les petits plats</h1>
     </header>
 
@@ -25,14 +29,15 @@
             </div>
 
             <div class="search__tags"></div>
-            
+
             <!----------------- Recherche par catégories --------------------------------->
             <div class="search__categories">
 
                 <!----------- Catégorie Ingrédients --------------------------------->
                 <div class="categories__ingredients">
                     <div class="ingredients__button">
-                        <input autocomplete="off" type="text" class="ingredients__button--container" id="search__ingredients" placeholder="Ingredients"></input>
+                        <input autocomplete="off" type="text" class="ingredients__button--container"
+                            id="search__ingredients" placeholder="Ingredients"></input>
                         <button class="ingredients__button--btn"></button>
                     </div>
                     <ul class="ingredients__list">
@@ -43,7 +48,8 @@
                 <!----------- Catégorie Appliances --------------------------------->
                 <div class="categories__appliances">
                     <div class="appliances__button">
-                        <input autocomplete="off" type="text" class="appliances__button--container" id="search__appliances" placeholder="Appareils"></input>
+                        <input autocomplete="off" type="text" class="appliances__button--container"
+                            id="search__appliances" placeholder="Appareils"></input>
                         <button class="appliances__button--btn"></button>
                     </div>
                     <ul class="appliances__list">
@@ -54,7 +60,8 @@
                 <!----------- Catégorie Ustensils --------------------------------->
                 <div class="categories__ustensils">
                     <div class="ustensils__button">
-                        <input autocomplete="off" type="text" class="ustensils__button--container" placeholder="Ustensiles"></input>
+                        <input autocomplete="off" type="text" class="ustensils__button--container"
+                            placeholder="Ustensiles"></input>
                         <button class="ustensils__button--btn"></button>
                     </div>
                     <ul class="ustensils__list">
@@ -63,7 +70,7 @@
                 </div>
             </div>
         </section>
-        
+
         <!----------------- Vignettes de recette --------------------------------->
         <section class="section__recipes">
             <article class="recipe__container">
@@ -84,6 +91,7 @@
 
     </main>
 
-    <script src="index.js" type="module"></script>
+    <script src="./app/scripts/index.js" type="module"></script>
 </body>
+
 </html>

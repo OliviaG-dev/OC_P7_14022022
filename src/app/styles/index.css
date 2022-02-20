@@ -1,54 +1,3 @@
-/* --------------------------------Reset CSS-------------------------------------- */
-
-/* http://meyerweb.com/eric/tools/css/reset/ 
-   v2.0 | 20110126
-   License: none (public domain)
-*/
-
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 100%;
-	font: inherit;
-	vertical-align: baseline;
-}
-/* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, 
-footer, header, hgroup, menu, nav, section {
-	display: block;
-}
-body {
-	line-height: 1;
-}
-ol, ul {
-	list-style: none;
-}
-blockquote, q {
-	quotes: none;
-}
-blockquote:before, blockquote:after,
-q:before, q:after {
-	content: '';
-	content: none;
-}
-table {
-	border-collapse: collapse;
-	border-spacing: 0;
-}
-
 /* --------------------------------Header-------------------------------------- */
 
 header {
@@ -87,7 +36,7 @@ main {
     border-radius: 0.5rem;
     background-color: #E7E7E7;
     font-size: 1.125em;
-    background-image: url(./assets/loupe\ search.png);
+    background-image: url(../assets/loupe\ search.png);
     background-repeat: no-repeat;
     background-position: 99% 50%;
     background-size: 2rem;
@@ -95,15 +44,16 @@ main {
 }
 
 #search::-webkit-search-cancel-button {
-    position:relative;
-    right: 3.75rem;    
+    position: relative;
+    right: 3.75rem;
     -webkit-appearance: none;
     height: 2.18rem;
     width: 2.18rem;
-    background-image: url(./assets/close\ tag.svg);
+    background-image: url(../assets/close\ tag.svg);
     background-repeat: no-repeat;
     background-position: 50%;
 }
+
 /* -------------------Categories---------------------- */
 
 .search__categories {
@@ -136,7 +86,9 @@ main {
     outline: none;
 }
 
-.ingredients__button--container, .appliances__button--container, .ustensils__button--container {
+.ingredients__button--container,
+.appliances__button--container,
+.ustensils__button--container {
     width: 110px;
     height: 35px;
     border: none;
@@ -146,7 +98,9 @@ main {
 }
 
 
-.appliances__button, .ingredients__button, .ustensils__button {
+.appliances__button,
+.ingredients__button,
+.ustensils__button {
     width: 10.6rem;
     height: 4.3rem;
     border-radius: 0.3rem;
@@ -160,23 +114,32 @@ main {
     font-weight: 700;
 }
 
-.appliances__button, .appliances__button--btn, .appliances__button--container {
+.appliances__button,
+.appliances__button--btn,
+.appliances__button--container {
     background-color: #68D9A4;
 }
 
-.ingredients__button, .ingredients__button--btn, .ingredients__button--container {
+.ingredients__button,
+.ingredients__button--btn,
+.ingredients__button--container {
     background-color: #3282F7;
 }
 
-.ustensils__button, .ustensils__button--btn, .ustensils__button--container {
+.ustensils__button,
+.ustensils__button--btn,
+.ustensils__button--container {
     background-color: #ED6454;
 }
 
-.ingredients__button--btn, .appliances__button--btn, .ustensils__button--btn {
+.ingredients__button--btn,
+.appliances__button--btn,
+.ustensils__button--btn {
     height: 2rem;
     width: 3rem;
-    background-image: url(./assets/Chevrons-btn.png);
+    background-image: url(../assets/Chevrons-btn.png);
     background-repeat: no-repeat;
     background-position: 50%;
     border: none;
+    cursor: pointer;
 }
