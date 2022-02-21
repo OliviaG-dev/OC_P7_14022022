@@ -1,6 +1,7 @@
 export function recipesFactory(data) {
     const { name, time, description, ingredients } = data;
-
+    
+    const i = `./app/assets/time recipe.png`;
 
     function getRecipeCardDOM() {
         const article = document.createElement("article");
@@ -11,14 +12,31 @@ export function recipesFactory(data) {
         
         const div = document.createElement("div");
         div.className = "recipe__details";
+        
+        const containerHigh = document.createElement("div");
+        containerHigh.className = "container__high"
 
         const title = document.createElement("h2");
         title.className = "recipe__details--name"
         title.textContent = name;
+        
+        const containerTime = document.createElement("div");
+        containerTime.className = "container__time";
+
+        const icone = document.createElement("img");
+        icone.className = "recipe__details--icone";
+        icone.setAttribute("src", i);
 
         const timer = document.createElement("span");
         timer.className = "recipe__details--time";
         timer.textContent = `${time} mn` 
+
+
+        const containerLow = document.createElement("div");
+        containerLow.className = "container__low"
+        
+        const containerLowLeft = document.createElement("div");
+        containerLowLeft.className = "container__low--left"
 
         const ul = document.createElement("ul");
         ul.className = "recipe__details--list";
@@ -44,16 +62,25 @@ export function recipesFactory(data) {
             ul.appendChild(li)
         })
 
+        const containerLowRight = document.createElement("div");
+        containerLowRight.className = "container__low--right"
+
         const instruction = document.createElement("p");
         instruction.className = "recipe__details--preperation";
         instruction.textContent = description;
 
         article.appendChild(aside);
         article.appendChild(div);
-        div.appendChild(title);
-        div.appendChild(timer);
-        div.appendChild(ul);
-        div.appendChild(instruction)
+        div.appendChild(containerHigh)
+        containerHigh.appendChild(title);
+        containerHigh.appendChild(containerTime);
+        containerTime.appendChild(icone);
+        containerTime.appendChild(timer);
+        div.appendChild(containerLow);
+        containerLow.appendChild(containerLowLeft);
+        containerLowLeft.appendChild(ul);
+        containerLow.appendChild(containerLowRight)
+        containerLowRight.appendChild(instruction)
 
         return article;
     }
