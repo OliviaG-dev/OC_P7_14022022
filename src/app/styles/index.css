@@ -22,7 +22,6 @@ header {
 /* --------------------------------Main-------------------------------------- */
 
 main {
-    display: flex;
     justify-content: center;
     margin: 2rem 5rem 2rem 5rem;
     font-family: 'Lato', sans-serif;
@@ -142,4 +141,27 @@ main {
     background-position: 50%;
     border: none;
     cursor: pointer;
+}
+
+
+/* -------------------Cards Recipes---------------------- */
+.recipe__container {
+    display: flex;
+    flex-direction: column;
+    height: 25rem;
+    width: 30rem;
+    margin-bottom: 1rem;
+}
+
+.recipe__picture {
+    background-color: #D04F4F;
+    height: 5rem;
+}
+
+.recipe__details {
+    background-color: #E7E7E7;
+}
+
+.recipe__details--ingredient {
+    display: flex;
 }

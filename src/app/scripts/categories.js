@@ -31,7 +31,6 @@ function createListOfAppliances(allRecipes) {
             const normalizeAppliances = normalizer(recipe.appliance);
             const appliance = capitalizer(normalizeAppliances);
             listAppliances.push(appliance)
-        
     })
     return listAppliances
 }
@@ -80,3 +79,5 @@ export function getUstensils(allRecipes) {
     cleanUstensils(createListOfUstensils(allRecipes))
     console.log(cleanUstensils(createListOfUstensils(allRecipes)));
 }
+
+// afficher les catégories avec listener au click
