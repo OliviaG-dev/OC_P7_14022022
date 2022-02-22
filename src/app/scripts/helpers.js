@@ -6,7 +6,7 @@ export function capitalizer(value) {
 //fonction pour : mettre tout en minuscule et enlevé les . etc...
 export function normalizer(data) {
   const dataNormalize = data
-    .normalize("NFD")
+    //.normalize("NFD")
     .replace(/[\u0300-\u036f.,!;:?]/g, "")
     .toLowerCase();
   return dataNormalize;

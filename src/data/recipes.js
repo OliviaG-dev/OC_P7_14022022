@@ -169,7 +169,7 @@ export const dataRecipes = [
         quantity: 2,
       },
       {
-        ingredient: "Crème fraiche",
+        ingredient: "Crème fraîche",
         quantity: 2,
         unit: "càs",
       },
@@ -186,7 +186,7 @@ export const dataRecipes = [
     ],
     time: 45,
     description:
-      "Etaler la pâte feuilleté aux dimensions du moule, étaler la moutarde sur la pâte feuilleté, ajouter le thon. Découper les tomates en rondelles et les poser sur le poisson, ajouter un peu de crème fraiche sur toute la tarte et recouvrez de gruyère râpé. Cuire au four 30 minutes",
+      "Etaler la pâte feuilleté aux dimensions du moule, étaler la moutarde sur la pâte feuilleté, ajouter le thon. Découper les tomates en rondelles et les poser sur le poisson, ajouter un peu de Crème fraîche sur toute la tarte et recouvrez de gruyère râpé. Cuire au four 30 minutes",
     appliance: "Four",
     ustensils: ["moule à tarte", "râpe à fromage", "couteau"],
   },
@@ -208,7 +208,7 @@ export const dataRecipes = [
         quantity: "2",
       },
       {
-        ingredient: "Crème fraiche",
+        ingredient: "Crème fraîche",
         quantity: 25,
         unit: "cl",
       },
@@ -225,7 +225,7 @@ export const dataRecipes = [
     ],
     time: 50,
     description:
-      "Commencez par mélanger les oeufs le sucre et le sucre vanillé dans un saladier, découper les pommes en tranches, ajouter la crème fraiche aux oeufs. Une fois que tout est pret, étalez la tarte dans le moule. N'oubliez pas de piquer le fond avec une fourchette avant depositionner les pommes sur la tarte. Finallement verser la préparation à base d'oeufs et de crême fraiche. Laisser cuire au four pendant 30 minutes",
+      "Commencez par mélanger les oeufs le sucre et le sucre vanillé dans un saladier, découper les pommes en tranches, ajouter la Crème fraîche aux oeufs. Une fois que tout est pret, étalez la tarte dans le moule. N'oubliez pas de piquer le fond avec une fourchette avant depositionner les pommes sur la tarte. Finallement verser la préparation à base d'oeufs et de crême fraiche. Laisser cuire au four pendant 30 minutes",
     appliance: "Four",
     ustensils: ["moule à tarte", "saladier", "fourchette"],
   },
@@ -442,7 +442,7 @@ export const dataRecipes = [
     time: 40,
     description:
       "Éplucher les fruits et les couper en morceaux, les mettre dans une casserolle en ajoutant l'eau et le sucre vanillé. Laisser cuire 15 minutes en remuant régulièrement.",
-    appliance: "Casserole",
+    appliance: "Casserolle",
     ustensils: ["couteau", "économe"],
   },
   {
@@ -478,7 +478,7 @@ export const dataRecipes = [
     time: 40,
     description:
       "Cuire les pommes de terre environ 30 minutes. Découper les échalottes finement. Durant la cuisson des pommes de terre. Préparez la vinaigrette avec l'huile d'olive et le vinaigre de cidre. Salez poivrez à discrétion. Dans un saladier, mettre le mâche. Ajouter",
-    appliance: "Casserole",
+    appliance: "Casserolle",
     ustensils: ["couteau", "saladier", "cuillère en bois"],
   },
   {
@@ -487,7 +487,7 @@ export const dataRecipes = [
     servings: 2,
     ingredients: [
       {
-        ingredient: "Saucisse bretonne ou de toulouse",
+        ingredient: "Saucisse bretonne/toulouse",
         quantity: 2,
       },
       {
@@ -706,7 +706,7 @@ export const dataRecipes = [
         unit: "g",
       },
       {
-        ingredient: "Crème fraiche",
+        ingredient: "Crème fraîche",
         quantity: 200,
         unit: "g",
       },
@@ -747,7 +747,7 @@ export const dataRecipes = [
         unit: "g",
       },
       {
-        ingredient: "Viande hachée 1% de matière grasse",
+        ingredient: "Viande hachée 1% de mg",
         quantity: 400,
         unit: "g",
       },
@@ -757,14 +757,14 @@ export const dataRecipes = [
         unit: "cl",
       },
       {
-        ingredient: "Crème Fraiche",
+        ingredient: "Crème fraîche",
         quantity: 1,
         unit: "càs",
       },
     ],
     time: 30,
     description:
-      "Cuisiner la viande hachée dans une poelle à frire. Dans une autre faire cuire les oignons découpés en fins dés avec un peu de beurre. Ajouter du vin rouge. Mélanger les oigons avec la viande hachée. Faire cuire les pates le temps indiqué sur le paquet. Ajouter le Coulis de tomates à la viande hachée. Une fois que les pates sont cuites, ajouter la crème fraiche à la viande hachée. Serivir.",
+      "Cuisiner la viande hachée dans une poelle à frire. Dans une autre faire cuire les oignons découpés en fins dés avec un peu de beurre. Ajouter du vin rouge. Mélanger les oigons avec la viande hachée. Faire cuire les pates le temps indiqué sur le paquet. Ajouter le Coulis de tomates à la viande hachée. Une fois que les pates sont cuites, ajouter la Crème fraîche à la viande hachée. Serivir.",
     appliance: "Casserolle.",
     ustensils: ["Cuillère en bois", "louche", "couteau"],
   },
@@ -984,7 +984,7 @@ export const dataRecipes = [
     ],
     time: 15,
     description:
-      "Faire fondre l'oseille avec du beurre demi sel, ajouter un litre d'eau. Ajouter les vermicelles. Laisser cuire. une foit prêt, sortir du feu et après 5 minutes ajouter le jaune d'oeuf et la crême fraîche",
+      "Faire fondre l'oseille avec du beurre demi sel, ajouter un litre d'eau. Ajouter les vermicelles. Laisser cuire. une foit prêt, sortir du feu et après 5 minutes ajouter le jaune d'oeuf et la Crème fraîche",
     appliance: "Casserolle",
     ustensils: ["couteau", "cuillère en bois"],
   },
@@ -1013,7 +1013,7 @@ export const dataRecipes = [
         unit: "g",
       },
       {
-        ingredient: "Crême fraîche",
+        ingredient: "Crème fraîche",
         quantity: 10,
         unit: "cl",
       },
@@ -1664,7 +1664,7 @@ export const dataRecipes = [
     ],
     time: 5,
     description:
-      "Mélanger le jus de citron avec le sucre et la mascarpone. Ajouter la crème fraiche. Mélanger le tout et mettre au congélateur pendant 1 heure. Servir",
+      "Mélanger le jus de citron avec le sucre et la mascarpone. Ajouter la Crème fraîche. Mélanger le tout et mettre au congélateur pendant 1 heure. Servir",
     appliance: "Saladier",
     ustensils: ["fouet", "verres", "cuillère en bois"],
   },

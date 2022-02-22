@@ -31,7 +31,6 @@ export function recipesFactory(data) {
         timer.className = "recipe__details--time";
         timer.textContent = `${time} mn` 
 
-
         const containerLow = document.createElement("div");
         containerLow.className = "container__low"
         
