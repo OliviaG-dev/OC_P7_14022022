@@ -155,15 +155,26 @@ main {
     display: flex;
     flex-direction: column;
     height: 22.75rem;
-    width: 25.75rem;
+    width: 27.75rem;
     margin-bottom: 5rem;
-    /* margin-right: 1rem; */
+    border-radius: 0.3rem;
+    transition: transform .3s ease-in;
+}
+
+.recipe__container:hover {
+    box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
+    transform: scale(1.02);
+}
+
+
+
+.recipe__picture {
+    display: contents;
 }
 
 .recipe__picture--img {
     border-radius: 0.3rem 0.3rem 0 0;
     height: 11.125rem;
-    width: 25.75rem;
     object-fit: cover;
 }
 
@@ -171,6 +182,7 @@ main {
     background-color: #E7E7E7;
     padding: 1rem;
     border-radius: 0 0 0.3rem 0.3rem;
+    flex-basis: 100%;
 }
 
 .recipe__details--ingredient {
@@ -217,7 +229,6 @@ main {
 
 .container__low--right {
     width: 50%;
-    height: 6.813rem;
 }
 
 .container__low--left {
