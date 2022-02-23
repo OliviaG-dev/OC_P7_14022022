@@ -1,7 +1,8 @@
 export function recipesFactory(data) {
-    const { name, time, description, ingredients } = data;
+    const { name, time, description, ingredients, id } = data;
     
     const i = `./app/assets/time recipe.png`;
+    const picture = `./app/assets/images/${id}.jpg`
 
     function getRecipeCardDOM() {
         const article = document.createElement("article");
@@ -9,6 +10,12 @@ export function recipesFactory(data) {
 
         const aside = document.createElement("aside");
         aside.className = "recipe__picture";
+
+        const image = document.createElement("img");
+        image.className = "recipe__picture--img";
+        image.setAttribute("src", picture );
+        image.setAttribute("alt", name )
+
         
         const div = document.createElement("div");
         div.className = "recipe__details";
@@ -69,6 +76,7 @@ export function recipesFactory(data) {
         instruction.textContent = description;
 
         article.appendChild(aside);
+        aside.appendChild(image);
         article.appendChild(div);
         div.appendChild(containerHigh)
         containerHigh.appendChild(title);

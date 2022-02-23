@@ -29,7 +29,7 @@ main {
 
 /* -------------------Search Bar---------------------- */
 #search {
-    width: 85vw;
+    width: 100%;
     height: 4.3rem;
     padding-left: 1.5rem;
     border-radius: 0.5rem;
@@ -155,14 +155,16 @@ main {
     display: flex;
     flex-direction: column;
     height: 22.75rem;
-    width: 23.75rem;
-    margin-bottom: 2rem;
+    width: 25.75rem;
+    margin-bottom: 5rem;
+    /* margin-right: 1rem; */
 }
 
-.recipe__picture {
-    background-color: #C7BEBE;
-    height: 11.125rem;
+.recipe__picture--img {
     border-radius: 0.3rem 0.3rem 0 0;
+    height: 11.125rem;
+    width: 25.75rem;
+    object-fit: cover;
 }
 
 .recipe__details {

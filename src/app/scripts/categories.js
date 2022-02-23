@@ -80,4 +80,7 @@ export function getUstensils(allRecipes) {
     console.log(cleanUstensils(createListOfUstensils(allRecipes)));
 }
 
+
+//////* /////////////////////////////////////////////////////////////////////////////////////////////////
+
 // afficher les catégories avec listener au click
