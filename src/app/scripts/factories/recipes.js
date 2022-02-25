@@ -16,7 +16,6 @@ export function recipesFactory(data) {
         image.setAttribute("src", picture );
         image.setAttribute("alt", name )
 
-        
         const div = document.createElement("div");
         div.className = "recipe__details";
         

@@ -1,5 +1,5 @@
 import { dataRecipes } from '/src/data/recipes.js'
-import { getUstensils, getAppliances, getIngredients } from './categories.js'
+import { getUstensils, getAppliances, getIngredients } from './outils/services.js'
 import { recipesFactory } from './factories/recipes.js'
 
 console.log(dataRecipes);

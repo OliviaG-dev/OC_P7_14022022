@@ -61,30 +61,6 @@ main {
     flex-wrap: wrap;
 }
 
-.search__categories .ingredients__button--container::placeholder {
-    color: #ffffff;
-}
-
-.search__categories .appliances__button--container::placeholder {
-    color: #ffffff;
-}
-
-.search__categories .ustensils__button--container::placeholder {
-    color: #ffffff;
-}
-
-.search__categories .ingredients__button--container:focus {
-    outline: none;
-}
-
-.search__categories .appliances__button--container:focus {
-    outline: none;
-}
-
-.search__categories .ustensils__button--container:focus {
-    outline: none;
-}
-
 .ingredients__button--container,
 .appliances__button--container,
 .ustensils__button--container {
@@ -94,7 +70,10 @@ main {
     font-size: 1.12em;
     font-weight: 700;
     color: #FFFFFF;
+    display: flex;
+    align-items: center;
 }
+
 
 .appliances__button,
 .ingredients__button,
@@ -104,31 +83,26 @@ main {
     border-radius: 0.3rem;
     margin-right: 0.8rem;
     margin-bottom: 0.8rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
     padding-left: 1.8rem;
     font-size: 1.12em;
     font-weight: 700;
+    display: flex;
+    align-items: center;
+    position: relative;
 }
 
-.appliances__button,
-.appliances__button--btn,
-.appliances__button--container {
+.color_green{
     background-color: #68D9A4;
 }
 
-.ingredients__button,
-.ingredients__button--btn,
-.ingredients__button--container {
+.color_blue {
     background-color: #3282F7;
 }
 
-.ustensils__button,
-.ustensils__button--btn,
-.ustensils__button--container {
+.color_orange {
     background-color: #ED6454;
 }
+
 
 .ingredients__button--btn,
 .appliances__button--btn,
@@ -141,6 +115,72 @@ main {
     border: none;
     cursor: pointer;
 }
+
+.button__close {
+    height: 2rem;
+    width: 3rem;
+    background-image: url(../assets/chevron-btn-close.png);
+    background-repeat: no-repeat;
+    background-position: 99% ;
+    cursor: pointer;
+}
+
+.search__filter {
+    width: 41.6rem;
+    height: 4.3rem;
+    border-radius: 0.3rem;
+    margin-right: 0.8rem;
+    margin-bottom: 0.8rem;
+    padding-left: 1.8rem;
+    font-size: 1.12em;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    /* position: absolute;
+    left: 0;
+    top: 0; */
+    
+}
+
+.search__ingredients--input, .search__appliances--input, .search__ustensils--input {
+    width: 80%;
+    color: #ffffff;  
+}
+
+.search__ingredients--input:focus, .search__appliances--input:focus, .search__ustensils--input:focus { 
+    outline: none;
+}
+
+.search__ingredients--input::placeholder, .search__appliances--input::placeholder, .search__ustensils--input::placeholder  { 
+    color: #ffffff73;
+}
+
+.categories__ingredients--active {
+    display: none;
+}
+
+.categories__appliances--active {
+    display: none;
+}
+
+.categories__ustensils--active {
+    display: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 /* -------------------Cards Recipes---------------------- */
@@ -165,8 +205,6 @@ main {
     box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
     transform: scale(1.02);
 }
-
-
 
 .recipe__picture {
     display: contents;
