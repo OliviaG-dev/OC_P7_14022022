@@ -74,7 +74,6 @@ main {
     align-items: center;
 }
 
-
 .appliances__button,
 .ingredients__button,
 .ustensils__button {
@@ -126,7 +125,7 @@ main {
 
 .search__filter {
     width: 41.6rem;
-    height: 4.3rem;
+    max-height: 19.5rem;
     border-radius: 0.3rem;
     margin-right: 0.8rem;
     margin-bottom: 0.8rem;
@@ -135,12 +134,38 @@ main {
     font-weight: 700;
     display: flex;
     align-items: center;
+    flex-direction: column;
 }
 
 .filter__div {
     display: flex;
     justify-content: space-between;
     width: 100%;
+    align-self: flex-start;
+    padding-top: 0.5rem;
+}
+
+.list__filter--ingredients, .list__filter--appliances, .list__filter--ustensils {
+    display: flex;
+    width: 100%;
+    flex-flow: wrap;
+    justify-content: space-around;
+}
+
+.list__filter--ingredients{
+    overflow-y: scroll;
+}
+
+/* .list__filter--ingredients li  */
+.list__item {
+    width: 30%;
+    max-height: 20rem;
+    font-family: 'Lato', sans-serif;;
+    font-size: 1em;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #ffffff;
+    cursor: pointer;
 }
 
 .search__ingredients--input, .search__appliances--input, .search__ustensils--input {

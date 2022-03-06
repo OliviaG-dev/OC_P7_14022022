@@ -43,6 +43,7 @@ export function listenerCategories() {
         ingredientsActif.classList.add("cat__actif")
         closeAppliances()
         closeUstencils()
+        addListItems()
         
     });
 
@@ -51,7 +52,7 @@ export function listenerCategories() {
         appliancesActif.classList.add("cat__actif")
         closeIngredients()
         closeUstencils()
-        
+        addListItems()
     });
 
     btnUstensils.addEventListener("click", () => {
@@ -59,6 +60,7 @@ export function listenerCategories() {
         ustensilsActif.classList.add("cat__actif")
         closeAppliances()
         closeIngredients()
+        addListItems()
     })
 
     //fermeture 
@@ -80,14 +82,38 @@ export function listenerCategories() {
 //console.log("3", listOfUstensils(dataRecipes));
 
 function addListItems() {
-    const listItem = document.createElement('li');
-    listItem.className = ('list__item');
+    const listContainerIngredients = document.querySelector(".list__filter--ingredients")
+    listContainerIngredients.innerHTML = ''
+
+    const listContainerAppliances = document.querySelector(".list__filter--appliances")
+    listContainerAppliances.innerHTML = ''
+
+    const listContainerUstensils = document.querySelector(".list__filter--ustensils")
+    listContainerUstensils.innerHTML = ''
 
     listOfIngredients(dataRecipes).forEach(ingredient => {
-
+        const li = document.createElement('li')
+        li.textContent = ingredient
+        li.className = ('list__item');
+        li.setAttribute('data-name', ingredient)       
+        listContainerIngredients.appendChild(li)
     })
 
+    listOfAppliances(dataRecipes).forEach(appliance => {
+        const li = document.createElement('li')
+        li.textContent = appliance
+        li.className = ('list__item');
+        li.setAttribute('data-name', appliance)       
+        listContainerAppliances.appendChild(li)
+    })
 
+    listOfUstensils(dataRecipes).forEach(ustensil => {
+        const li = document.createElement('li')
+        li.textContent = ustensil
+        li.className = ('list__item');
+        li.setAttribute('data-name', ustensil)       
+        listContainerUstensils.appendChild(li)
+    })
 
 }
 
