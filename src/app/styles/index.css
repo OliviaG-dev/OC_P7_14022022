@@ -103,7 +103,6 @@ main {
     background-color: #ED6454;
 }
 
-
 .ingredients__button--btn,
 .appliances__button--btn,
 .ustensils__button--btn {
@@ -116,12 +115,12 @@ main {
     cursor: pointer;
 }
 
-.button__close {
+.button__close__blue, .button__close__green, .button__close__orange {
     height: 2rem;
     width: 3rem;
     background-image: url(../assets/chevron-btn-close.png);
     background-repeat: no-repeat;
-    background-position: 99% ;
+    background-position: center ;
     cursor: pointer;
 }
 
@@ -136,10 +135,12 @@ main {
     font-weight: 700;
     display: flex;
     align-items: center;
-    /* position: absolute;
-    left: 0;
-    top: 0; */
-    
+}
+
+.filter__div {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
 }
 
 .search__ingredients--input, .search__appliances--input, .search__ustensils--input {
@@ -166,6 +167,22 @@ main {
 .categories__ustensils--active {
     display: none;
 }
+
+.cat__passif {
+    display: none;
+}
+.cat__actif {
+    display: flex;
+}
+
+
+/* -------------------Tags---------------------- */
+.tag__ingredients, .tag__appliances, .tag__ustensils {
+    height: 2rem;
+    width: 5rem;
+    background-color: red;
+}
+
 
 
 

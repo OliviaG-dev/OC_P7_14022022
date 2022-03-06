@@ -1,6 +1,7 @@
 import { dataRecipes } from '/src/data/recipes.js'
-import { getUstensils, getAppliances, getIngredients } from './outils/services.js'
+import { getUstensils, getAppliances, getIngredients } from './utils/services.js'
 import { recipesFactory } from './factories/recipes.js'
+import { listenerCategories } from './categories.js'
 
 console.log(dataRecipes);
 
@@ -16,7 +17,7 @@ function displayRecipes(recipes) {
 
 function init() {
     displayRecipes(dataRecipes);
-
+    listenerCategories();
     getIngredients(dataRecipes);
     getAppliances(dataRecipes);
     getUstensils (dataRecipes);

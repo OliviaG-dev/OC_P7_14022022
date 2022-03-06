@@ -28,6 +28,8 @@
                 <input type="search" id="search" placeholder="Rechercher une recette">
             </div>
 
+
+            <!----------------- Recherche  tags --------------------------------->
             <div class="search__tags"></div>
 
             <!----------------- Recherche par catégories --------------------------------->
@@ -36,19 +38,19 @@
                 <!----------- Catégorie Ingrédients --------------------------------->
 
                 <div class="categories__ingredients">
-                    <div class="ingredients__button color_blue">
+                    <div class="ingredients__button color_blue" data-type="ingredients">
                         <div class="ingredients__button--container">Ingredients</div>
-                        <button class="ingredients__button--btn color_blue" onclick="OpenFilter('ingredients')"></button>
+                        <button class="ingredients__button--btn color_blue"></button>
                     </div>
                 </div>
 
-                <div class="categories__ingredients--active">
-                    <div class="search__filter color_blue" id="search__ingredients">
-                        <div>
-                            <input type="text" autocomplete="off" class="search__ingredients--input           color_blue"placeholder="Rechercher un ingrédient">
-                            <button class="button__close color_blue" onclick="closeFilter('ingredients')"></button>
+                <div class="categories__ingredients--active" data-type="ingredients">
+                    <div class="search__filter color_blue" id="search__ingredients" data-type="ingredients">
+                        <div class="filter__div">
+                            <input type="text" autocomplete="off" class="search__ingredients--input           color_blue" placeholder="Rechercher un ingrédient" data-type="ingredients">
+                            <button class="button__close__blue color_blue"></button>
                         </div>
-                        <ul class="list__filter color_blue" id="list__filter--ingredients"></ul>
+                        <ul class="list__filter color_blue" id="list__filter--ingredients" data-type="ingredients"></ul>
                     </div>
                 </div>
                 
@@ -58,15 +60,15 @@
                 <div class="categories__appliances">
                     <div class="appliances__button color_green">
                         <div class="appliances__button--container">Appareils</div>
-                        <button class="appliances__button--btn color_green" onclick="OpenFilter('appliances')"></button>                     
+                        <button class="appliances__button--btn color_green"></button>                     
                     </div>
                 </div>
                 
                 <div class="categories__appliances--active">
                     <div class="search__filter color_green" id="search__appliances">
-                        <div>
+                        <div class="filter__div">
                             <input type="text" autocomplete="off" class="search__appliances--input color_green"         placeholder="Rechercher un appareils">
-                            <button class="button__close color_green" onclick="closeFilter('appliances')"></button>
+                            <button class="button__close__green color_green"></button>
                         </div>
                         <ul class="list__filter color_green" id="list__filter--appliances"></ul>
                     </div>
@@ -75,15 +77,15 @@
                 <div class="categories__ustensils">
                     <div class="ustensils__button color_orange">
                         <div class="ustensils__button--container">Ustensils</div>
-                        <button class="ustensils__button--btn color_orange" onclick="OpenFilter('ustensils')"></button>           
+                        <button class="ustensils__button--btn color_orange"></button>           
                     </div>
                 </div>
                 
                 <div class="categories__ustensils--active">
                     <div class="search__filter color_orange" id="search__ustensils">
-                        <div>
+                        <div class="filter__div">
                             <input type="text" autocomplete="off" class="search__ustensils--input color_orange"         placeholder="Rechercher un ustensils">
-                            <button class="button__close color_orange" onclick="closeFilter('ustensils')"></button>
+                            <button class="button__close__orange color_orange"></button>
                         </div>
                         <ul class="list__filter color_orange" id="list__filter--ustensils"></ul>
                     </div>
