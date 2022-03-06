@@ -1,5 +1,5 @@
 import { dataRecipes } from '/src/data/recipes.js'
-import { getUstensils, getAppliances, getIngredients } from './utils/services.js'
+//import {listOfIngredients, listOfAppliances, listOfUstensils } from './utils/services.js'
 import { recipesFactory } from './factories/recipes.js'
 import { listenerCategories } from './categories.js'
 
@@ -14,13 +14,16 @@ function displayRecipes(recipes) {
         RecipesSection.appendChild(recipeCardDOM);
     });
 }
+//console.log( "2", ListOfIngredients(dataRecipes))
+//console.log( "2",  listOfAppliances(dataRecipes))
+//console.log("2", listOfUstensils(dataRecipes))
 
 function init() {
     displayRecipes(dataRecipes);
     listenerCategories();
-    getIngredients(dataRecipes);
-    getAppliances(dataRecipes);
-    getUstensils (dataRecipes);
+    //listOfIngredients(dataRecipes)
+    //listOfAppliances(dataRecipes)
+    //listOfUstensils(dataRecipes)
 }
 
 init()

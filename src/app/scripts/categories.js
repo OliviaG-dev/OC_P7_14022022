@@ -1,4 +1,5 @@
-//import { getIngredients, getAppliances, getUstensils } from './services.js'
+import { listOfIngredients, listOfAppliances, listOfUstensils } from './utils/services.js'
+import { dataRecipes } from '/src/data/recipes.js'
 
 //ici mes categories 
 
@@ -74,9 +75,19 @@ export function listenerCategories() {
     });
 }
 
+//console.log("3", listOfIngredients(dataRecipes));
+//console.log("3", listOfAppliances(dataRecipes));
+//console.log("3", listOfUstensils(dataRecipes));
+
 function addListItems() {
     const listItem = document.createElement('li');
     listItem.className = ('list__item');
+
+    listOfIngredients(dataRecipes).forEach(ingredient => {
+
+    })
+
+
 
 }
 
