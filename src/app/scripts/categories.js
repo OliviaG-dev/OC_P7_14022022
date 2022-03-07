@@ -1,9 +1,6 @@
 import { listOfIngredients, listOfAppliances, listOfUstensils } from './utils/services.js'
 import { dataRecipes } from '/src/data/recipes.js'
 
-//ici mes categories 
-
-//au click j'ouvre ...
 
 export function listenerCategories() {
     const btnIngredients = document.querySelector(".ingredients__button--btn");
@@ -81,6 +78,26 @@ export function listenerCategories() {
 //console.log("3", listOfAppliances(dataRecipes));
 //console.log("3", listOfUstensils(dataRecipes));
 
+const tagList = []
+
+//pensez a controler que le tag n'est pas insérer
+function addTag(tagType, tag) {
+    const tagText = tag.innerText
+    const searchTag = document.querySelector(".search__tags")
+
+    tagList.push({tagType, tagText})
+    console.log(tagList);
+    const tagElement = document.createElement("div")
+    tagElement.innerHTML = tagText + `<img src="app/assets/close tag.svg"/> `
+    tagElement.className = tagType+" tag"
+    searchTag.appendChild(tagElement)
+    tagElement.addEventListener("click", (e) => {
+        searchTag.removeChild(e.target)
+        //penser a supprimer du tableau
+    })
+    //lancer la recherche
+}
+
 function addListItems() {
     const listContainerIngredients = document.querySelector(".list__filter--ingredients")
     listContainerIngredients.innerHTML = ''
@@ -98,6 +115,10 @@ function addListItems() {
         li.setAttribute('data-name', ingredient)  
         li.setAttribute('data-set', "ingredients")      
         listContainerIngredients.appendChild(li)
+        li.addEventListener("click", (e) => {
+            addTag("ingredient", e.target)
+        })
+
     })
 
     listOfAppliances(dataRecipes).forEach(appliance => {
@@ -107,6 +128,9 @@ function addListItems() {
         li.setAttribute('data-name', appliance)   
         li.setAttribute('data-set', "appliances")   
         listContainerAppliances.appendChild(li)
+        li.addEventListener("click", (e) => {
+            addTag("appliance", e.target)
+        })
     })
 
     listOfUstensils(dataRecipes).forEach(ustensil => {
@@ -115,6 +139,9 @@ function addListItems() {
         li.className = ('list__item');
         li.setAttribute('data-name', ustensil)       
         listContainerUstensils.appendChild(li)
+        li.addEventListener("click", (e) => {
+            addTag("ustensil", e.target)
+        })
     })
 
 }

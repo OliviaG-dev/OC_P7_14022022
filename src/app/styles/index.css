@@ -90,16 +90,31 @@ main {
     position: relative;
 }
 
-.color_green{
+.color_green, .appliance {
     background-color: #68D9A4;
 }
 
-.color_blue {
+.color_blue, .ingredient {
     background-color: #3282F7;
 }
 
-.color_orange {
+.color_orange, .ustensil {
     background-color: #ED6454;
+}
+
+.tag {
+    border-radius: 5px;
+    padding: 5px 10px;
+    display: inline-block;
+    margin:2px;
+    color: white; 
+    vertical-align: middle;
+    margin-top: 15px;
+}
+.tag img{
+    pointer-events: none;
+    vertical-align: middle;
+    margin-left: 5px;
 }
 
 .ingredients__button--btn,
