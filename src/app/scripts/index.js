@@ -5,6 +5,9 @@ import { listenerCategories } from './categories.js'
 
 console.log(dataRecipes);
 
+const searchInputRecipes = document.querySelector("#search")
+const searchResult = document.querySelector(".section__recipes")
+
 function displayRecipes(recipes) {
     const RecipesSection = document.querySelector(".section__recipes");
     
@@ -14,16 +17,26 @@ function displayRecipes(recipes) {
         RecipesSection.appendChild(recipeCardDOM);
     });
 }
-//console.log( "2", ListOfIngredients(dataRecipes))
-//console.log( "2",  listOfAppliances(dataRecipes))
-//console.log("2", listOfUstensils(dataRecipes))
+
+searchInputRecipes.addEventListener("input", filterData)
+
+function filterData(e) {
+    searchResult.innerHTML = ""
+
+    const searchedString = e.target.value.toLowerCase().replace(/\s/g, "");
+
+    const filterArray = 
+    dataRecipes.filter(item => item.name.toLowerCase().includes(searchedString) || 
+    item.description.toLowerCase().includes(searchedString))
+
+    displayRecipes(filterArray)
+}
+
+
 
 function init() {
     displayRecipes(dataRecipes);
     listenerCategories();
-    //listOfIngredients(dataRecipes)
-    //listOfAppliances(dataRecipes)
-    //listOfUstensils(dataRecipes)
 }
 
 init()

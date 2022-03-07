@@ -95,7 +95,8 @@ function addListItems() {
         const li = document.createElement('li')
         li.textContent = ingredient
         li.className = ('list__item');
-        li.setAttribute('data-name', ingredient)       
+        li.setAttribute('data-name', ingredient)  
+        li.setAttribute('data-set', "ingredients")      
         listContainerIngredients.appendChild(li)
     })
 
@@ -103,7 +104,8 @@ function addListItems() {
         const li = document.createElement('li')
         li.textContent = appliance
         li.className = ('list__item');
-        li.setAttribute('data-name', appliance)       
+        li.setAttribute('data-name', appliance)   
+        li.setAttribute('data-set', "appliances")   
         listContainerAppliances.appendChild(li)
     })
 
@@ -116,4 +118,7 @@ function addListItems() {
     })
 
 }
+
+
+
 
