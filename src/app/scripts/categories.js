@@ -112,17 +112,9 @@ function addTag(tagType, tag) {
   });
     console.log(tagList);
    //ici mettre la recherche 
-});
-
+  });
 }
 
-// const searchIngredients = document.querySelector(".search__ingredients--input") 
-// const searchAppliances = document.querySelector(".search__appliances--input") 
-// const searchUstensils = document.querySelector(".search__ustensils--input") 
-
-// searchIngredients.addEventListener("input", filterIngredients)
-// searchAppliances.addEventListener("input", filterAppliances)
-// searchUstensils.addEventListener("input", filterUstensils)
 
 function addListItems() {
   const listContainerIngredients = document.querySelector(
@@ -143,6 +135,7 @@ function addListItems() {
   const ingredients =  listOfIngredients(dataRecipes).map(ingredient => ({ingredient}))
   //console.log(ingredients);
 
+  //---------------------------------Ingredients----------------------------------------
 
   ingredients.forEach((ingredient) => {
     const li = document.createElement("li");
@@ -151,8 +144,6 @@ function addListItems() {
     li.setAttribute("data-name", ingredient);
     li.setAttribute("data-set", "ingredients");
     listContainerIngredients.appendChild(li);
-    
-    
     li.addEventListener("click", (e) => {
       addTag("ingredient", e.target);
     });
@@ -172,83 +163,63 @@ function addListItems() {
     })
   })
 
+//---------------------------------Appliances----------------------------------------
 
+  const appliances =  listOfAppliances(dataRecipes).map(appliance => ({appliance}))
 
-  listOfAppliances(dataRecipes).forEach((appliance) => {
+  appliances.forEach((appliance) => {
     const li = document.createElement("li");
-    li.textContent = appliance;
+    li.textContent = appliance.appliance;
     li.className = "list__item";
     li.setAttribute("data-name", appliance);
     li.setAttribute("data-set", "appliances");
     listContainerAppliances.appendChild(li);
-
     li.addEventListener("click", (e) => {
       addTag("appliance", e.target);
     });
+    appliance.tag = li
   });
 
-  listOfUstensils(dataRecipes).forEach((ustensil) => {
+  const searchAppliances = document.querySelector(".search__appliances--input") 
+  searchAppliances.addEventListener("input", (e) => {
+    console.log("ici");
+    const searchedString = e.target.value.toLowerCase().replace(/\s/g, "");
+    appliances.forEach(appliance => {
+      if (appliance.appliance.toLowerCase().includes(searchedString)) {
+        appliance.tag.style.display = "inline-block"
+      } else {
+        appliance.tag.style.display = "none"
+      }
+    })
+  })
+
+//---------------------------------Ustensils----------------------------------------
+  
+const ustensils =  listOfUstensils(dataRecipes).map(ustensil => ({ustensil}))
+
+  ustensils.forEach((ustensil) => {
     const li = document.createElement("li");
-    li.textContent = ustensil;
+    li.textContent = ustensil.ustensil;
     li.className = "list__item";
     li.setAttribute("data-name", ustensil);
     listContainerUstensils.appendChild(li);
-
     li.addEventListener("click", (e) => {
       addTag("ustensil", e.target);
     });
+    ustensil.tag = li
   });
+
+  const searchUstensils = document.querySelector(".search__ustensils--input") 
+
+  searchUstensils.addEventListener("input", (e) => {
+    console.log("ici");
+    const searchedString = e.target.value.toLowerCase().replace(/\s/g, "");
+    ustensils.forEach(ustensil => {
+      if (ustensil.ustensil.toLowerCase().includes(searchedString)) {
+        ustensil.tag.style.display = "inline-block"
+      } else {
+        ustensil.tag.style.display = "none"
+      }
+    })
+  })
 }
-
-
-// 117 
-//console.log("0",  tagRemove);
-//console.log("1", tagList);
-
-// const array = []
-// tagList.forEach((tag) => {
-//   console.log("2", tag.tagText);
-//   return array.push(tag.tagText)
-// });
-
-// console.log("3", array);
-/*
-
-tagList.forEach(tag => console.log('t', Object.values(tag).filter(item => item != tag.tagText)))
-
-var newArray = tagList.filter(function(item) { 
-    console.log("4", item);
-
-    return  tagList !== item 
-})
-// var myIndex = array.indexOf(tagRemove);
-
-// console.log(myIndex);
-// if (myIndex !== -1) {
-//     array.splice(myIndex, 1);
-// }
-/console.log("5",newArray)
-
-
-// const myIndex = tagList.indexOf(e.target.textContent)
-// console.log(myIndex);
-// if (myIndex !== -1) {
-//     tagList.splice(myIndex, 1);
-//     }
-//     console.log("2", tagList);
-
-//console.log(tagList.splice(myIndex, 1));
-
-//penser a supprimer du tableau
-});
-//lancer la recherche
-}
-
-//let myIndex = tagList.indexOf('e.target')
-
-
-// var myArray = ['one', 'two', 'three'];
-// var newArray = myArray.filter(function(f) { return f !== 'two' })
-// console.log(newArray)
-
- jusqua la func addListItems*/
