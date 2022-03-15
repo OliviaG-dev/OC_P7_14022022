@@ -82,50 +82,47 @@ export function listenerCategories() {
   });
 }
 
-function arrayRemove(arr, value) {
-  return arr.filter(function (ele) {
-    return ele != value;
-  });
-}
-
-function deleteTest(arr, target) {
-  arrayRemove(arr, target);
-}
-
 //console.log("3", listOfIngredients(dataRecipes));
 //console.log("3", listOfAppliances(dataRecipes));
 //console.log("3", listOfUstensils(dataRecipes));
 
-const tagList = [];
+let tagList = [];
 
 //pensez a controler que le tag n'est pas insérer
 function addTag(tagType, tag) {
   const tagText = tag.innerText;
   const searchTag = document.querySelector(".search__tags");
-
+  
   tagList.push({ tagType, tagText });
+
+  
   //console.log(tagList);
   const tagElement = document.createElement("div");
   tagElement.innerHTML = tagText + `<img src="app/assets/close tag.svg"/> `;
   tagElement.className = tagType + " tag";
   searchTag.appendChild(tagElement);
 
-
-  // remove tag
   tagElement.addEventListener("click", (e) => {
     searchTag.removeChild(e.target);
     const tagRemove = e.target.textContent
 
-
-  console.log( tagList.filter(data => data.tagText !=  tagRemove));
-   
-   //penser a supprimer du tableau
-   //console.log(remainingArr);
+  tagList = tagList.filter(data => {
+    //console.log(data.tagText+"!="+tagRemove+" "+ (data.tagText.trim() != tagRemove.trim()));
+    return data.tagText.trim() != tagRemove.trim();
+  });
+    console.log(tagList);
+   //ici mettre la recherche 
 });
-console.log(tagList);
 
-//lancer la recherche
 }
+
+// const searchIngredients = document.querySelector(".search__ingredients--input") 
+// const searchAppliances = document.querySelector(".search__appliances--input") 
+// const searchUstensils = document.querySelector(".search__ustensils--input") 
+
+// searchIngredients.addEventListener("input", filterIngredients)
+// searchAppliances.addEventListener("input", filterAppliances)
+// searchUstensils.addEventListener("input", filterUstensils)
 
 function addListItems() {
   const listContainerIngredients = document.querySelector(
@@ -143,17 +140,39 @@ function addListItems() {
   );
   listContainerUstensils.innerHTML = "";
 
-  listOfIngredients(dataRecipes).forEach((ingredient) => {
+  const ingredients =  listOfIngredients(dataRecipes).map(ingredient => ({ingredient}))
+  //console.log(ingredients);
+
+
+  ingredients.forEach((ingredient) => {
     const li = document.createElement("li");
-    li.textContent = ingredient;
+    li.textContent = ingredient.ingredient;
     li.className = "list__item";
     li.setAttribute("data-name", ingredient);
     li.setAttribute("data-set", "ingredients");
     listContainerIngredients.appendChild(li);
+    
+    
     li.addEventListener("click", (e) => {
       addTag("ingredient", e.target);
     });
+    ingredient.tag = li
   });
+  
+  const searchIngredients = document.querySelector(".search__ingredients--input") 
+  searchIngredients.addEventListener("input", (e) => {
+    console.log("ici");
+    const searchedString = e.target.value.toLowerCase().replace(/\s/g, "");
+    ingredients.forEach(ingredient => {
+      if (ingredient.ingredient.toLowerCase().includes(searchedString)) {
+        ingredient.tag.style.display = "inline-block"
+      } else {
+        ingredient.tag.style.display = "none"
+      }
+    })
+  })
+
+
 
   listOfAppliances(dataRecipes).forEach((appliance) => {
     const li = document.createElement("li");
@@ -162,6 +181,7 @@ function addListItems() {
     li.setAttribute("data-name", appliance);
     li.setAttribute("data-set", "appliances");
     listContainerAppliances.appendChild(li);
+
     li.addEventListener("click", (e) => {
       addTag("appliance", e.target);
     });
@@ -173,6 +193,7 @@ function addListItems() {
     li.className = "list__item";
     li.setAttribute("data-name", ustensil);
     listContainerUstensils.appendChild(li);
+
     li.addEventListener("click", (e) => {
       addTag("ustensil", e.target);
     });
