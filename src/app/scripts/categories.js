@@ -4,6 +4,7 @@ import {
   listOfUstensils,
 } from "./utils/services.js";
 import { dataRecipes } from "/src/data/recipes.js";
+import { displayRecipes } from "./index.js";
 
 export function listenerCategories() {
   const btnIngredients = document.querySelector(".ingredients__button--btn");
@@ -82,26 +83,53 @@ export function listenerCategories() {
   });
 }
 
-//console.log("3", listOfIngredients(dataRecipes));
-//console.log("3", listOfAppliances(dataRecipes));
-//console.log("3", listOfUstensils(dataRecipes));
 
 let tagList = [];
 
 //pensez a controler que le tag n'est pas insérer
-function addTag(tagType, tag) {
+export function addTag(tagType, tag) {
   const tagText = tag.innerText;
   const searchTag = document.querySelector(".search__tags");
-  
-  tagList.push({ tagType, tagText });
-
-  
-  //console.log(tagList);
   const tagElement = document.createElement("div");
+
+  tagList.push({ tagType, tagText });
   tagElement.innerHTML = tagText + `<img src="app/assets/close tag.svg"/> `;
   tagElement.className = tagType + " tag";
   searchTag.appendChild(tagElement);
+  
+  //console.log("1", tagList);
+  //ici faire la search 
+  
+  const searchResult = document.querySelector(".section__recipes");
+  searchResult.innerHTML = ""
 
+  
+  // const searchedString = tagList.tagText;
+
+  // console.log(searchedString);
+
+    // const filterArray = 
+    // dataRecipes.filter(item => 
+    //   item.name.toLowerCase().includes(searchedString) || 
+    //   item.description.toLowerCase().includes(searchedString))
+
+    // displayRecipes(filterArray)
+
+
+  // tagList.forEach(tag => {
+  //   console.log(tag.tagText);
+  //   console.log(dataRecipes.ingredients.ingredient);
+  //   if (tag.tagText.includes(dataRecipes.ingredients.ingredient)) {
+  //     recipes.style.display = "inline-block"
+  //   } else {
+  //     recipes.style.display = "none"
+  //   }
+  // })
+
+
+
+
+  //remove TAG
   tagElement.addEventListener("click", (e) => {
     searchTag.removeChild(e.target);
     const tagRemove = e.target.textContent
@@ -110,10 +138,28 @@ function addTag(tagType, tag) {
     //console.log(data.tagText+"!="+tagRemove+" "+ (data.tagText.trim() != tagRemove.trim()));
     return data.tagText.trim() != tagRemove.trim();
   });
-    console.log(tagList);
+    //console.log(tagList);
+    //console.log("2", tagList);
    //ici mettre la recherche 
   });
+  //console.log("3", tagList);
+   //ici mettre la recherche 
 }
+
+const filterByTags = (ingredients) => {
+//console.log(list);
+console.log(tagList);
+console.log(dataRecipes);
+dataRecipes.filter( dataRecipe => {
+  const tagFilter = [ingredients.concat(dataRecipe.appliance, dataRecipe.ustensils)]
+  return tagList.some(f => tagFilter.includes(f));
+  //tagList.every( filter => dataRecipe.description.includes(filter))
+})
+
+displayRecipes(filterByTags)
+}
+
+
 
 
 function addListItems() {
@@ -133,7 +179,7 @@ function addListItems() {
   listContainerUstensils.innerHTML = "";
 
   const ingredients =  listOfIngredients(dataRecipes).map(ingredient => ({ingredient}))
-  //console.log(ingredients);
+  console.log(ingredients);
 
   //---------------------------------Ingredients----------------------------------------
 
@@ -146,6 +192,8 @@ function addListItems() {
     listContainerIngredients.appendChild(li);
     li.addEventListener("click", (e) => {
       addTag("ingredient", e.target);
+      filterByTags(ingredients)
+
     });
     ingredient.tag = li
   });
@@ -176,6 +224,7 @@ function addListItems() {
     listContainerAppliances.appendChild(li);
     li.addEventListener("click", (e) => {
       addTag("appliance", e.target);
+      filterByTags()
     });
     appliance.tag = li
   });
@@ -205,6 +254,7 @@ const ustensils =  listOfUstensils(dataRecipes).map(ustensil => ({ustensil}))
     listContainerUstensils.appendChild(li);
     li.addEventListener("click", (e) => {
       addTag("ustensil", e.target);
+      filterByTags()
     });
     ustensil.tag = li
   });

@@ -1,16 +1,12 @@
 import { dataRecipes } from "/src/data/recipes.js";
-//import {listOfIngredients, listOfAppliances, listOfUstensils } from './utils/services.js'
 import { recipesFactory } from "./factories/recipes.js";
 import { listenerCategories } from "./categories.js";
 
-//console.log(dataRecipes);
+console.log(dataRecipes);
 const searchInputRecipes = document.querySelector("#search")
 const searchResult = document.querySelector(".section__recipes")
-// const searchIngredients = document.querySelector(".search__ingredients--input") 
-// const searchAppliances = document.querySelector(".search__appliances--input") 
-// const searchUstensils = document.querySelector(".search__ustensils--input") 
 
-function displayRecipes(recipes) {
+export function displayRecipes(recipes) {
   const RecipesSection = document.querySelector(".section__recipes");
 
   recipes.forEach((recipes) => {
@@ -37,11 +33,6 @@ function filterData(e) {
     displayRecipes(filterArray)
 }
 
-// searchIngredients.addEventListener("input", filterIngredients)
-
-// searchAppliances.addEventListener("input", filterAppliances)
-
-// searchUstensils.addEventListener("input", filterUstensils)
 
 function init() {
   displayRecipes(dataRecipes);
