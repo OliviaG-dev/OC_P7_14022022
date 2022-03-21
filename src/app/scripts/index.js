@@ -9,7 +9,7 @@ const searchResult = document.querySelector(".section__recipes")
 export function displayRecipes(recipes) {
   const RecipesSection = document.querySelector(".section__recipes");
 
-  recipes.forEach((recipes) => {
+  recipes?.forEach((recipes) => {
     const recipeModel = recipesFactory(recipes);
     const recipeCardDOM = recipeModel.getRecipeCardDOM();
     RecipesSection.appendChild(recipeCardDOM);

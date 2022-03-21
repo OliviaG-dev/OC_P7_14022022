@@ -100,32 +100,18 @@ export function addTag(tagType, tag) {
   //console.log("1", tagList);
   //ici faire la search 
   
-  const searchResult = document.querySelector(".section__recipes");
-  searchResult.innerHTML = ""
-
   
-  // const searchedString = tagList.tagText;
-
-  // console.log(searchedString);
-
-    // const filterArray = 
-    // dataRecipes.filter(item => 
-    //   item.name.toLowerCase().includes(searchedString) || 
-    //   item.description.toLowerCase().includes(searchedString))
-
-    // displayRecipes(filterArray)
-
-
-  // tagList.forEach(tag => {
-  //   console.log(tag.tagText);
-  //   console.log(dataRecipes.ingredients.ingredient);
-  //   if (tag.tagText.includes(dataRecipes.ingredients.ingredient)) {
-  //     recipes.style.display = "inline-block"
-  //   } else {
-  //     recipes.style.display = "none"
-  //   }
-  // })
-
+  const recipes = document.querySelectorAll(".recipe__container");
+  recipes.forEach(recipe => {
+    
+    tagList.forEach(f => {
+        if (recipe.innerText.includes(f.tagText)) {
+          recipe.style.display = "flex"
+        } else {
+          recipe.style.display = "none"
+        }
+      })
+  })
 
 
 
@@ -138,27 +124,23 @@ export function addTag(tagType, tag) {
     //console.log(data.tagText+"!="+tagRemove+" "+ (data.tagText.trim() != tagRemove.trim()));
     return data.tagText.trim() != tagRemove.trim();
   });
-    //console.log(tagList);
-    //console.log("2", tagList);
-   //ici mettre la recherche 
+  
+  const recipes = document.querySelectorAll(".recipe__container");
+  recipes.forEach(recipe => {
+    
+    tagList.forEach(f => {
+        if (recipe.innerText.includes(f.tagText)) {
+          recipe.style.display = "flex"
+        } else {
+          recipe.style.display = "none"
+        }
+      })
+  })
+
   });
   //console.log("3", tagList);
    //ici mettre la recherche 
 }
-
-const filterByTags = (ingredients) => {
-//console.log(list);
-console.log(tagList);
-console.log(dataRecipes);
-dataRecipes.filter( dataRecipe => {
-  const tagFilter = [ingredients.concat(dataRecipe.appliance, dataRecipe.ustensils)]
-  return tagList.some(f => tagFilter.includes(f));
-  //tagList.every( filter => dataRecipe.description.includes(filter))
-})
-
-displayRecipes(filterByTags)
-}
-
 
 
 
@@ -177,9 +159,8 @@ function addListItems() {
     ".list__filter--ustensils"
   );
   listContainerUstensils.innerHTML = "";
-
+  
   const ingredients =  listOfIngredients(dataRecipes).map(ingredient => ({ingredient}))
-  console.log(ingredients);
 
   //---------------------------------Ingredients----------------------------------------
 
@@ -192,15 +173,12 @@ function addListItems() {
     listContainerIngredients.appendChild(li);
     li.addEventListener("click", (e) => {
       addTag("ingredient", e.target);
-      filterByTags(ingredients)
-
     });
     ingredient.tag = li
   });
   
   const searchIngredients = document.querySelector(".search__ingredients--input") 
   searchIngredients.addEventListener("input", (e) => {
-    console.log("ici");
     const searchedString = e.target.value.toLowerCase().replace(/\s/g, "");
     ingredients.forEach(ingredient => {
       if (ingredient.ingredient.toLowerCase().includes(searchedString)) {
@@ -224,14 +202,12 @@ function addListItems() {
     listContainerAppliances.appendChild(li);
     li.addEventListener("click", (e) => {
       addTag("appliance", e.target);
-      filterByTags()
     });
     appliance.tag = li
   });
 
   const searchAppliances = document.querySelector(".search__appliances--input") 
   searchAppliances.addEventListener("input", (e) => {
-    console.log("ici");
     const searchedString = e.target.value.toLowerCase().replace(/\s/g, "");
     appliances.forEach(appliance => {
       if (appliance.appliance.toLowerCase().includes(searchedString)) {
@@ -254,7 +230,6 @@ const ustensils =  listOfUstensils(dataRecipes).map(ustensil => ({ustensil}))
     listContainerUstensils.appendChild(li);
     li.addEventListener("click", (e) => {
       addTag("ustensil", e.target);
-      filterByTags()
     });
     ustensil.tag = li
   });
@@ -262,7 +237,6 @@ const ustensils =  listOfUstensils(dataRecipes).map(ustensil => ({ustensil}))
   const searchUstensils = document.querySelector(".search__ustensils--input") 
 
   searchUstensils.addEventListener("input", (e) => {
-    console.log("ici");
     const searchedString = e.target.value.toLowerCase().replace(/\s/g, "");
     ustensils.forEach(ustensil => {
       if (ustensil.ustensil.toLowerCase().includes(searchedString)) {
