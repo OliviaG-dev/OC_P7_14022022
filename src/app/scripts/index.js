@@ -2,7 +2,7 @@ import { dataRecipes } from "/src/data/recipes.js";
 import { recipesFactory } from "./factories/recipes.js";
 import { listenerCategories } from "./categories.js";
 
-console.log(dataRecipes);
+//console.log(dataRecipes);
 const searchInputRecipes = document.querySelector("#search")
 const searchResult = document.querySelector(".section__recipes")
 
