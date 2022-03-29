@@ -7,9 +7,14 @@ export function recipesFactory(data) {
     function getRecipeCardDOM() {
         const article = document.createElement("article");
         article.className = "recipe__container"
+        
+        const idHide = document.createElement("div");
+        idHide.className = "cat__passif";
+        idHide.innerText = id;
 
         const aside = document.createElement("aside");
         aside.className = "recipe__picture";
+
 
         const image = document.createElement("img");
         image.className = "recipe__picture--img";
@@ -74,6 +79,7 @@ export function recipesFactory(data) {
         instruction.className = "recipe__details--preperation";
         instruction.textContent = description;
 
+        article.appendChild(idHide);
         article.appendChild(aside);
         aside.appendChild(image);
         article.appendChild(div);

@@ -5,6 +5,7 @@ import { listenerCategories } from "./categories.js";
 //console.log(dataRecipes);
 const searchInputRecipes = document.querySelector("#search")
 const searchResult = document.querySelector(".section__recipes")
+const noResult = document.querySelector(".no__result")
 
 export function displayRecipes(recipes) {
   const RecipesSection = document.querySelector(".section__recipes");
@@ -13,6 +14,7 @@ export function displayRecipes(recipes) {
     const recipeModel = recipesFactory(recipes);
     const recipeCardDOM = recipeModel.getRecipeCardDOM();
     RecipesSection.appendChild(recipeCardDOM);
+    recipes.htmlTag = recipeCardDOM
   });
 }
 
@@ -24,53 +26,62 @@ function filterData(e) {
     searchResult.innerHTML = ""
 
     const searchedString = e.target.value.toLowerCase().replace(/\s/g, "");
-
-    // const filterUstensils =
-    // dataRecipes.forEach( f => f.ustensils);
-
-    // const filterIngredients = 
-    // dataRecipes.forEach( f => f.ingredients.ingredient);
-
-    // console.log(filterUstensils);
-    // console.log(filterIngredients);
-
     const filterArray = 
     dataRecipes.filter(item => 
       item.name.toLowerCase().includes(searchedString) || 
       item.appliance.toLowerCase().includes(searchedString) ||
       item.description.toLowerCase().includes(searchedString) && 
       e.length >2) 
-
-    const filterArray2 =
-    dataRecipes.forEach( f => f.ustensils);
+      
+      if(filterArray.length === 0 ) {
+        noResult.className = "cat__actif";
+      }
+      displayRecipes(filterArray)
+      }
       
 
     
-    displayRecipes(filterArray)
-}
 
 let tagList = []; 
 
-// function matchTextSearch(recipe) {
-//   const text = searchInputRecipes.value;
-//   if (text.length > 2) {
-//     if (
-//       recipe.description.toLowerCase().includes(text.toLowerCase()) ||
-//       recipe.name.toLowerCase().includes(text.toLowerCase()) ||
-//       recipe.appliance.toLowerCase().includes(text.toLowerCase())
-//     )
-//       return true;
-//     for (const ingredient of recipe.ingredients) {
-//       if (ingredient.ingredient.toLowerCase().includes(text.toLowerCase()))
-//         return true;
-//     }
-//     for (const ustensil of recipe.ustensils) {
-//       if (ustensil.toLowerCase().includes(text.toLowerCase())) return true;
-//     }
-//     return false;
-//   }
-//   return true;
-// }
+function matchTextSearch(recipe) {
+  const text = searchInputRecipes.value;
+  if (text.length > 2) {
+    if (
+      recipe.description.toLowerCase().includes(text.toLowerCase()) ||
+      recipe.name.toLowerCase().includes(text.toLowerCase()) ||
+      recipe.appliance.toLowerCase().includes(text.toLowerCase())
+    )
+      return true;
+    for (const ingredient of recipe.ingredients) {
+      if (ingredient.ingredient.toLowerCase().includes(text.toLowerCase()))
+        return true;
+    }
+    for (const ustensil of recipe.ustensils) {
+      if (ustensil.toLowerCase().includes(text.toLowerCase())) 
+      return true;
+    }
+    return false;
+  }
+  return true;
+}
+
+function containsTag(tag, recipe) {
+  console.log(tag);
+  console.log(tag.tagType + "== ingredient" );
+  switch (tag.tagType) {
+    case "ingredient" : 
+      const find = recipe.ingredients.find( (ingredient) => ingredient.ingredient.toLowerCase() == tag.tagText.toLowerCase() )
+      console.log(find);
+      return find != undefined
+    case "appliance" :
+      break;
+    case "ustensil" :
+      break;
+    default : 
+      console.log("pas trouvé");
+  }
+}
 
 export function addTag(tagType, tag) {
   const tagText = tag.innerText;
@@ -101,22 +112,50 @@ export function addTag(tagType, tag) {
   // }
 
   // filterTag()
+  const recipes = document.querySelectorAll(".recipe__container");
 
-  // const recipes = dataRecipes
-  // console.log(recipes);
-  // recipes.forEach((recipe) => {
-  //   tagList.forEach((f) => {
-  //     console.log("ici" + recipe.id);
-  //     if(recipe.id == 3) {
-  //       console.log(recipe.includes(f.tagText)  +'&&'+ matchTextSearch(recipe));
-  //     }
-  //     if (recipe.includes(f.tagText) && matchTextSearch(recipe)) {
-  //       recipe.style.display = "flex";
-  //     } else {
-  //       recipe.style.display = "none";
-  //     }
-  //   });
-  // });
+  console.log(dataRecipes);
+
+  
+  dataRecipes.forEach((recipe) => {
+
+    //console.log(recipe);
+    
+    tagList.forEach((f) => {
+      console.log(f);
+      console.log(recipe);
+      //console.log("ici" + recipe.id);
+      // if(recipe.id == 3) {
+      //   console.log(recipe.includes(f.tagText)  +'&&'+ matchTextSearch(recipe));
+      // }
+      if (containsTag(f, recipe) && matchTextSearch(recipe)) {
+        console.log("ok");
+        //if (recipe.includes(f.tagText) && matchTextSearch(recipe)) {
+        recipe.htmlTag.display = "flex";
+      } else {
+        console.log("ko");
+        recipe.htmlTag.display = "none";
+      }
+    });
+  });
+
+//   function filterTag() {
+//     searchResult.innerHTML = ""
+
+//     const searchedString = tagText.toLowerCase();
+//     console.log(searchedString);
+//     const filterArrayTag = 
+//     dataRecipes.filter(item => 
+//       item.name.toLowerCase().includes(searchedString) || 
+//       item.appliance.toLowerCase().includes(searchedString) ||
+//       item.description.toLowerCase().includes(searchedString))
+      
+
+    
+//     displayRecipes(filterArrayTag)
+// }
+
+// filterTag();
 
 
   //remove TAG
