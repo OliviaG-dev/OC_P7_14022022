@@ -2,25 +2,26 @@ import { dataRecipes } from "/src/data/recipes.js";
 import { recipesFactory } from "./factories/recipes.js";
 import { listenerCategories } from "./categories.js";
 
-//console.log(dataRecipes);
+console.log(dataRecipes);
 const searchInputRecipes = document.querySelector("#search")
 const searchResult = document.querySelector(".section__recipes")
 const noResult = document.querySelector(".no__result")
 
+//affiche les recette
 export function displayRecipes(recipes) {
   const RecipesSection = document.querySelector(".section__recipes");
 
-  recipes?.forEach((recipes) => {
-    const recipeModel = recipesFactory(recipes);
+  recipes?.forEach((recipe) => {
+    const recipeModel = recipesFactory(recipe);
     const recipeCardDOM = recipeModel.getRecipeCardDOM();
     RecipesSection.appendChild(recipeCardDOM);
-    recipes.htmlTag = recipeCardDOM
+    recipe.htmlTag = recipeCardDOM
   });
 }
 
+
 //search bar
 searchInputRecipes.addEventListener("input", filterData)
-
 
 function filterData(e) {
     searchResult.innerHTML = ""
@@ -38,9 +39,6 @@ function filterData(e) {
       }
       displayRecipes(filterArray)
       }
-      
-
-    
 
 let tagList = []; 
 
@@ -67,17 +65,19 @@ function matchTextSearch(recipe) {
 }
 
 function containsTag(tag, recipe) {
-  console.log(tag);
-  console.log(tag.tagType + "== ingredient" );
   switch (tag.tagType) {
     case "ingredient" : 
-      const find = recipe.ingredients.find( (ingredient) => ingredient.ingredient.toLowerCase() == tag.tagText.toLowerCase() )
-      console.log(find);
-      return find != undefined
+      const findIngredient = recipe.ingredients.find( (ingredient) => ingredient.ingredient.toLowerCase() == tag.tagText.toLowerCase())
+      console.log(findIngredient);
+      return findIngredient != undefined
     case "appliance" :
-      break;
+      const findAppliance = recipe.appliance.toLowerCase() == tag.tagText.toLowerCase()
+      console.log(findAppliance);
+      return findAppliance != false
     case "ustensil" :
-      break;
+      const findUstensil = recipe.ustensils.find( (ustensils) => ustensils.toLowerCase() == tag.tagText.toLowerCase())
+      console.log(findUstensil);
+      return findUstensil != undefined
     default : 
       console.log("pas trouvé");
   }
@@ -93,70 +93,19 @@ export function addTag(tagType, tag) {
   tagElement.className = tagType + " tag";
   searchTag.appendChild(tagElement);
 
-  //console.log("1", tagList);
-  //ici faire la search
-
-  // function filterTag() {
-
-  //   const searchedTag = tagText.toLowerCase();
-  //   console.log(searchedTag);
-
-  //   const filterArrayTag = 
-  //   dataRecipes.filter(item => 
-  //     item.name.toLowerCase().includes(searchedString) || 
-  //     item.description.toLowerCase().includes(searchedString) && 
-  //     e.length >2)
-
-  //   displayRecipes(filterArrayTag)
-
-  // }
-
-  // filterTag()
-  const recipes = document.querySelectorAll(".recipe__container");
-
-  console.log(dataRecipes);
-
   
+  //recherche par tag
   dataRecipes.forEach((recipe) => {
-
-    //console.log(recipe);
     
     tagList.forEach((f) => {
-      console.log(f);
-      console.log(recipe);
-      //console.log("ici" + recipe.id);
-      // if(recipe.id == 3) {
-      //   console.log(recipe.includes(f.tagText)  +'&&'+ matchTextSearch(recipe));
-      // }
       if (containsTag(f, recipe) && matchTextSearch(recipe)) {
-        console.log("ok");
-        //if (recipe.includes(f.tagText) && matchTextSearch(recipe)) {
-        recipe.htmlTag.display = "flex";
-      } else {
-        console.log("ko");
-        recipe.htmlTag.display = "none";
+        recipe.htmlTag.style.display = "flex";
+      } else { 
+        recipe.htmlTag.style.display = "none";
       }
     });
   });
-
-//   function filterTag() {
-//     searchResult.innerHTML = ""
-
-//     const searchedString = tagText.toLowerCase();
-//     console.log(searchedString);
-//     const filterArrayTag = 
-//     dataRecipes.filter(item => 
-//       item.name.toLowerCase().includes(searchedString) || 
-//       item.appliance.toLowerCase().includes(searchedString) ||
-//       item.description.toLowerCase().includes(searchedString))
-      
-
     
-//     displayRecipes(filterArrayTag)
-// }
-
-// filterTag();
-
 
   //remove TAG
   tagElement.addEventListener("click", (e) => {
@@ -165,6 +114,17 @@ export function addTag(tagType, tag) {
     tagList = tagList.filter((data) => {
       //console.log(data.tagText+"!="+tagRemove+" "+ (data.tagText.trim() != tagRemove.trim()));
       return data.tagText.trim() != tagRemove.trim();
+    });
+
+    dataRecipes.forEach((recipe) => {
+    
+      tagList.forEach((f) => {
+        if (containsTag(f, recipe) && matchTextSearch(recipe)) {
+          recipe.htmlTag.style.display = "flex";
+        } else { 
+          recipe.htmlTag.style.display = "none";
+        }
+      });
     });
    //ici remettre la recherche par tag
   });
