@@ -19,7 +19,6 @@ export function displayRecipes(recipes) {
   });
 }
 
-
 //search bar
 searchInputRecipes.addEventListener("input", filterData)
 
@@ -68,15 +67,12 @@ function containsTag(tag, recipe) {
   switch (tag.tagType) {
     case "ingredient" : 
       const findIngredient = recipe.ingredients.find((ingredient) => ingredient.ingredient.toLowerCase() == tag.tagText.toLowerCase())
-      //console.log(findIngredient);
       return findIngredient != undefined
     case "appliance" :
       const findAppliance = recipe.appliance.toLowerCase() === tag.tagText.toLowerCase()
-      //console.log(findAppliance);
       return findAppliance != false
     case "ustensil" :
       const findUstensil = recipe.ustensils.find( (ustensils) => ustensils.toLowerCase() == tag.tagText.toLowerCase())
-      //console.log(findUstensil);
       return findUstensil != undefined
     default : 
       console.log("pas trouvé");
@@ -93,7 +89,6 @@ export function addTag(tagType, tag) {
   tagElement.className = tagType + " tag";
   searchTag.appendChild(tagElement);
 
-  
   //recherche par tag
   dataRecipes.forEach((recipe) => { 
     tagList.forEach((f) => {
@@ -104,8 +99,7 @@ export function addTag(tagType, tag) {
       }
     });
   });
-    
-
+  
   //remove TAG
   tagElement.addEventListener("click", (e) => {
     searchTag.removeChild(e.target);
@@ -114,8 +108,8 @@ export function addTag(tagType, tag) {
       //console.log(data.tagText+"!="+tagRemove+" "+ (data.tagText.trim() != tagRemove.trim()));
       return data.tagText.trim() != tagRemove.trim();
     });
-
-    dataRecipes.forEach((recipe) => {
+    //ici remettre la recherche par tag
+    dataRecipes.forEach((recipe) => { 
       tagList.forEach((f) => {
         if (containsTag(f, recipe) && matchTextSearch(recipe)) {
           recipe.htmlTag.style.display = "flex";
@@ -124,16 +118,6 @@ export function addTag(tagType, tag) {
         }
       });
     });
-   //ici remettre la recherche par tag
-  dataRecipes.forEach((recipe) => { 
-    tagList.forEach((f) => {
-      if (containsTag(f, recipe) && matchTextSearch(recipe)) {
-        recipe.htmlTag.style.display = "flex";
-      } else { 
-        recipe.htmlTag.style.display = "none";
-      }
-    });
-  });
     // reload quant le tableau est vide
     if (tagList.length === 0) {
       window.location.reload();

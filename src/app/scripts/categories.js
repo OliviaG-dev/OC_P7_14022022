@@ -100,11 +100,12 @@ function addListItems() {
   );
   listContainerUstensils.innerHTML = "";
 
+  
+  //---------------------------------Ingredients----------------------------------------
+  
   const ingredients = listOfIngredients(dataRecipes).map((ingredient) => ({
     ingredient,
   }));
-
-  //---------------------------------Ingredients----------------------------------------
 
   ingredients.forEach((ingredient) => {
     const li = document.createElement("li");
