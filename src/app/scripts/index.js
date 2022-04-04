@@ -2,7 +2,7 @@ import { dataRecipes } from "/src/data/recipes.js";
 import { recipesFactory } from "./factories/recipes.js";
 import { listenerCategories } from "./categories.js";
 
-console.log(dataRecipes);
+//console.log(dataRecipes);
 const searchInputRecipes = document.querySelector("#search")
 const searchResult = document.querySelector(".section__recipes")
 const noResult = document.querySelector(".no__result")
@@ -67,16 +67,16 @@ function matchTextSearch(recipe) {
 function containsTag(tag, recipe) {
   switch (tag.tagType) {
     case "ingredient" : 
-      const findIngredient = recipe.ingredients.find( (ingredient) => ingredient.ingredient.toLowerCase() == tag.tagText.toLowerCase())
-      console.log(findIngredient);
+      const findIngredient = recipe.ingredients.find((ingredient) => ingredient.ingredient.toLowerCase() == tag.tagText.toLowerCase())
+      //console.log(findIngredient);
       return findIngredient != undefined
     case "appliance" :
-      const findAppliance = recipe.appliance.toLowerCase() == tag.tagText.toLowerCase()
-      console.log(findAppliance);
+      const findAppliance = recipe.appliance.toLowerCase() === tag.tagText.toLowerCase()
+      //console.log(findAppliance);
       return findAppliance != false
     case "ustensil" :
       const findUstensil = recipe.ustensils.find( (ustensils) => ustensils.toLowerCase() == tag.tagText.toLowerCase())
-      console.log(findUstensil);
+      //console.log(findUstensil);
       return findUstensil != undefined
     default : 
       console.log("pas trouvé");
@@ -95,8 +95,7 @@ export function addTag(tagType, tag) {
 
   
   //recherche par tag
-  dataRecipes.forEach((recipe) => {
-    
+  dataRecipes.forEach((recipe) => { 
     tagList.forEach((f) => {
       if (containsTag(f, recipe) && matchTextSearch(recipe)) {
         recipe.htmlTag.style.display = "flex";
@@ -117,7 +116,6 @@ export function addTag(tagType, tag) {
     });
 
     dataRecipes.forEach((recipe) => {
-    
       tagList.forEach((f) => {
         if (containsTag(f, recipe) && matchTextSearch(recipe)) {
           recipe.htmlTag.style.display = "flex";
@@ -127,10 +125,21 @@ export function addTag(tagType, tag) {
       });
     });
    //ici remettre la recherche par tag
+  dataRecipes.forEach((recipe) => { 
+    tagList.forEach((f) => {
+      if (containsTag(f, recipe) && matchTextSearch(recipe)) {
+        recipe.htmlTag.style.display = "flex";
+      } else { 
+        recipe.htmlTag.style.display = "none";
+      }
+    });
+  });
+    // reload quant le tableau est vide
+    if (tagList.length === 0) {
+      window.location.reload();
+    }
   });
 }
-
-
 
 function init() {
   displayRecipes(dataRecipes);
