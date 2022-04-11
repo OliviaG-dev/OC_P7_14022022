@@ -1,5 +1,4 @@
 import { capitalizer, normalizer, unique  } from './helpers.js'
-import { dataRecipes } from '/src/data/recipes.js'
 
 
 

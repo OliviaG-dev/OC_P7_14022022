@@ -128,7 +128,7 @@ function addListItems() {
     const searchedString = e.target.value.toLowerCase().replace(/\s/g, "");
     ingredients.forEach((ingredient) => {
       if (ingredient.ingredient.toLowerCase().includes(searchedString)) {
-        ingredient.tag.style.display = "inline-block";
+        ingredient.tag.style.display = "flex";
       } else {
         ingredient.tag.style.display = "none";
       }
@@ -160,7 +160,7 @@ function addListItems() {
     const searchedString = e.target.value.toLowerCase().replace(/\s/g, "");
     appliances.forEach((appliance) => {
       if (appliance.appliance.toLowerCase().includes(searchedString)) {
-        appliance.tag.style.display = "inline-block";
+        appliance.tag.style.display = "flex";
       } else {
         appliance.tag.style.display = "none";
       }
@@ -192,7 +192,7 @@ function addListItems() {
     const searchedString = e.target.value.toLowerCase().replace(/\s/g, "");
     ustensils.forEach((ustensil) => {
       if (ustensil.ustensil.toLowerCase().includes(searchedString)) {
-        ustensil.tag.style.display = "inline-block";
+        ustensil.tag.style.display = "flex";
       } else {
         ustensil.tag.style.display = "none";
       }
