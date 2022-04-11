@@ -314,3 +314,74 @@ main {
     text-overflow: ellipsis;
     font-family: Roboto, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
+
+/* -------------------Media queries---------------------- */
+
+/* -------------------Responsive mobile---------------------- */
+
+@media (max-width: 550px) {
+
+    main {
+        margin: 0;
+        text-align: center;
+    }
+    
+    #search {
+        border-radius: 0rem;
+        width: 80%;
+        justify-content: center;
+        align-items: center;
+        padding: 0 1rem 0 1rem;
+        /* background-position: 90% 50%; */
+    }
+
+    .recipe__container {
+        width: 100%;
+    }
+
+    .search__filter {
+        width: 70%;
+        margin-left: 1.3rem;
+        padding-left: 0;
+    }
+
+    .search__ingredients--input::placeholder, .search__appliances--input::placeholder, .search__ustensils--input::placeholder  {
+        font-size: 1rem;
+        padding-left: 1rem;
+    }
+
+    .list__item {
+        width: 100%;
+        justify-content: center;
+        display: flex;
+    }
+
+    .list__filter--appliances, .list__filter--ustensils {
+        overflow-y: scroll;
+    }
+
+    #search__bar {
+        display: flex;
+    }
+
+    .search__bar {
+        margin-top: 1rem;
+    }
+
+    .search__categories {
+        justify-content: center;
+    }
+
+    .categories__ingredients--active, .categories__ustensils--active, .categories__appliances--active {
+        justify-content: center;
+    }
+
+    .search__tags {
+        justify-content: center;
+    }
+
+    p {
+        padding: 0 0.8rem 0 0.8rem;
+        line-height: 1.5;
+    }
+}
