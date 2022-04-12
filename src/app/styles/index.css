@@ -319,7 +319,7 @@ main {
 
 /* -------------------Responsive mobile---------------------- */
 
-@media (max-width: 550px) {
+@media only screen and (max-width: 550px) {
 
     main {
         margin: 0;
@@ -343,6 +343,10 @@ main {
         width: 70%;
         margin-left: 1.3rem;
         padding-left: 0;
+    }
+
+    .filter__div input {
+        padding-left: 1rem;
     }
 
     .search__ingredients--input::placeholder, .search__appliances--input::placeholder, .search__ustensils--input::placeholder  {
@@ -383,5 +387,14 @@ main {
     p {
         padding: 0 0.8rem 0 0.8rem;
         line-height: 1.5;
+    }
+}
+
+/* -------------------tablette---------------------- */
+
+@media only screen and (min-width: 610px) and (max-width: 1045px) {
+
+    .recipe__container {
+        width: 100%;
     }
 }
