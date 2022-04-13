@@ -31,22 +31,24 @@ searchInputRecipes.addEventListener("input", (e) => {
 
 function filterRecipe (searchedString) {
   
+
   if (searchedString.length > 2) {
   const filterArray = dataRecipes.filter(
     (recipe) =>
       recipe.name.toLowerCase().includes(searchedString) ||
-      recipe.appliance.toLowerCase().includes(searchedString) ||
+      recipe.ingredients.find((ingredientArray) => ingredientArray.ingredient
+        .toLowerCase()
+        .includes(searchedString)) ||
       (recipe.description.toLowerCase().includes(searchedString))
   );
-
+  console.log(filterArray);
     dataRecipes.forEach((recipe) => {
       //console.log(recipe);
       //console.log(dataRecipes);
-      //console.log(filterArray);
+      console.log(filterArray);
       filterArray.forEach((recipeFilter) => {
-
-        console.log("1", recipe);
-        console.log("2", recipeFilter);
+        //console.log("1", recipe);
+        //console.log("2", recipeFilter);
         if (recipe == recipeFilter) {
           recipe.htmlTag.style.display = "flex";
           console.log(recipe.htmlTag);
@@ -57,11 +59,14 @@ function filterRecipe (searchedString) {
         }
         
       })
-      if (filterArray.length === 0) {
-        recipe.htmlTag.style.display = "none";
-        recipe.visible = false;
-        noResult.className = "cat__actif";
-        }
+      // if (filterArray.length === 0) {
+      //   recipe.visible = false;
+      //   noResult.className = "cat__actif";
+      //   }
+
+      // if (searchedString.length === null) {
+      //   window.location.reload();
+      // }
     })
   }
 }
@@ -136,7 +141,6 @@ function matchTextSearch(recipe) {
     recipe.visible = false
     return false;
   }
-  //recipe.visible = true
   return true;
 }
 

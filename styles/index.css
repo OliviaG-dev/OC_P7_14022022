@@ -39,6 +39,7 @@ main {
     background-position: 99% 50%;
     background-size: 2rem;
     border: none;
+    padding-left: 1.5rem;
 }
 
 #search::placeholder {
