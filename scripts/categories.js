@@ -4,7 +4,7 @@ import {
   listOfUstensils,
 } from "./utils/services.js";
 import { dataRecipes } from "../data/recipes.js";
-import { addTag} from "index.js";
+import { addTag} from "./index.js";
 
 
 export function listenerCategories() {

@@ -1,6 +1,6 @@
 import { dataRecipes } from "../data/recipes.js";
 import { recipesFactory } from "./factories/recipes.js";
-import { listenerCategories } from "categories.js";
+import { listenerCategories } from "./categories.js";
 //import { addListItems } from "./categories.js"
 
 //console.log(dataRecipes);
