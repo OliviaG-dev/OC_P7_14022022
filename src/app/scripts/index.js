@@ -1,6 +1,6 @@
-import { dataRecipes } from "/src/data/recipes.js";
+import { dataRecipes } from "../data/recipes.js";
 import { recipesFactory } from "./factories/recipes.js";
-import { listenerCategories } from "./categories.js";
+import { listenerCategories } from "categories.js";
 //import { addListItems } from "./categories.js"
 
 //console.log(dataRecipes);
@@ -169,7 +169,7 @@ export function addTag(tagType, tag) {
   const tagElement = document.createElement("div");
 
   tagList.push({ tagType, tagText });
-  tagElement.innerHTML = tagText + `<img src="app/assets/close tag.svg"/> `;
+  tagElement.innerHTML = tagText + `<img src="assets/close tag.svg"/> `;
   tagElement.className = tagType + " tag";
   searchTag.appendChild(tagElement);
 

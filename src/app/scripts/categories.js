@@ -3,8 +3,8 @@ import {
   listOfAppliances,
   listOfUstensils,
 } from "./utils/services.js";
-import { dataRecipes } from "/src/data/recipes.js";
-import { addTag} from "./index.js";
+import { dataRecipes } from "../data/recipes.js";
+import { addTag} from "index.js";
 
 
 export function listenerCategories() {

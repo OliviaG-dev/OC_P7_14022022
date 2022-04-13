@@ -1,8 +1,8 @@
 export function recipesFactory(data) {
     const { name, time, description, ingredients, id } = data;
     
-    const i = `./app/assets/time recipe.png`;
-    const picture = `./app/assets/images/${id}.jpg`
+    const i = `assets/time recipe.png`;
+    const picture = `assets/images/${id}.jpg`
 
     function getRecipeCardDOM() {
         const article = document.createElement("article");
