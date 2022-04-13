@@ -46,7 +46,8 @@ function filterRecipe (searchedString) {
       filterArray.forEach((recipeFilter) => {
 
         console.log("1", recipe);
-        if (recipeFilter === recipe) {
+        console.log("2", recipeFilter);
+        if (recipe == recipeFilter) {
           recipe.htmlTag.style.display = "flex";
           console.log(recipe.htmlTag);
           recipe.visible = true;

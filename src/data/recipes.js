@@ -20,7 +20,7 @@ export const dataRecipes = [
       },
       {
         ingredient: "Sucre",
-        quantite: 30,
+        quantity: 30,
         unit: "g",
       },
       {
@@ -53,7 +53,7 @@ export const dataRecipes = [
       },
       {
         ingredient: "Carotte",
-        quantite: 1,
+        quantity: 1,
       },
       {
         ingredient: "Citron Vert",
