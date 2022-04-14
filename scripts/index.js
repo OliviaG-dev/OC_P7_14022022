@@ -1,7 +1,7 @@
 import { dataRecipes } from "../data/recipes.js";
 import { recipesFactory } from "./factories/recipes.js";
 import { listenerCategories } from "./categories.js";
-//import { addListItems } from "./categories.js"
+
 
 //console.log(dataRecipes);
 const searchInputRecipes = document.querySelector("#search");
@@ -25,98 +25,42 @@ export function displayRecipes(recipes) {
 //search bar
 searchInputRecipes.addEventListener("input", (e) => {
   const searchedString = e.target.value.toLowerCase().replace(/\s/g, "");
-  //const cardRecipe = document.querySelectorAll(".recipe__container")
   filterRecipe(searchedString)
 });
 
 function filterRecipe (searchedString) {
   
-
   if (searchedString.length > 2) {
-  const filterArray = dataRecipes.filter(
-    (recipe) =>
+    const filterArray = dataRecipes.filter(
+      (recipe) =>
       recipe.name.toLowerCase().includes(searchedString) ||
-      recipe.ingredients.find((ingredientArray) => ingredientArray.ingredient
+      recipe.ingredients.find((ingredient) => ingredient.ingredient
         .toLowerCase()
         .includes(searchedString)) ||
       (recipe.description.toLowerCase().includes(searchedString))
-  );
-  console.log(filterArray);
-    dataRecipes.forEach((recipe) => {
-      //console.log(recipe);
-      //console.log(dataRecipes);
-      console.log(filterArray);
-      filterArray.forEach((recipeFilter) => {
-        //console.log("1", recipe);
-        //console.log("2", recipeFilter);
-        if (recipe == recipeFilter) {
-          recipe.htmlTag.style.display = "flex";
-          console.log(recipe.htmlTag);
-          recipe.visible = true;
-        } else {
-          recipe.htmlTag.style.display = "none";
-          recipe.visible = false;
-        }
-        
-      })
-      // if (filterArray.length === 0) {
-      //   recipe.visible = false;
-      //   noResult.className = "cat__actif";
-      //   }
-
-      // if (searchedString.length === null) {
-      //   window.location.reload();
-      // }
+      );
+    
+    
+    dataRecipes.forEach((f) => {
+      f.htmlTag.style.display = "none";
     })
+
+    filterArray.forEach((recipe) => {  
+      recipe.htmlTag.style.display = "flex";     
+    })
+    
+    if (filterArray.length === 0) {
+        noResult.className = "cat__actif";
+    }
+}
+
+  if (searchedString.length == 0) {
+    window.location.reload();
   }
 }
 
 
-// function filterData(e) {
-//   searchResult.innerHTML = "";
-
-//   const searchedString = e.target.value.toLowerCase().replace(/\s/g, "");
-//   const filterArray = dataRecipes.filter(
-//     (item) =>
-//       item.name.toLowerCase().includes(searchedString) ||
-//       item.appliance.toLowerCase().includes(searchedString) ||
-//       (item.description.toLowerCase().includes(searchedString) && e.length > 2)
-//   );
-
-//   if (filterArray.length === 0) {
-//     noResult.className = "cat__actif";
-//   }
-//   displayRecipes(filterArray);
-//   console.log(dataRecipes[0].visible);
-//   const activeRecipes = dataRecipes.filter((recipe) => recipe.visible == true);
-//   console.log(activeRecipes);
-// }
-
-// searchInputRecipes.addEventListener("input", filterData);
-
-// function filterData(e) {
-//   searchResult.innerHTML = "";
-
-//   const searchedString = e.target.value.toLowerCase().replace(/\s/g, "");
-//   const filterArray = dataRecipes.filter(
-//     (item) =>
-//       item.name.toLowerCase().includes(searchedString) ||
-//       item.appliance.toLowerCase().includes(searchedString) ||
-//       (item.description.toLowerCase().includes(searchedString) && e.length > 2)
-//   );
-
-//   if (filterArray.length === 0) {
-//     noResult.className = "cat__actif";
-//   }
-//   displayRecipes(filterArray);
-//   console.log(dataRecipes[0].visible);
-//   const activeRecipes = dataRecipes.filter((recipe) => recipe.visible == true);
-//   console.log(activeRecipes);
-// }
-
-
 let tagList = [];
-
 
 
 function matchTextSearch(recipe) {
@@ -198,6 +142,7 @@ export function addTag(tagType, tag) {
       //console.log(data.tagText+"!="+tagRemove+" "+ (data.tagText.trim() != tagRemove.trim()));
       return data.tagText.trim() != tagRemove.trim();
     });
+
     //ici remettre la recherche par tag
     dataRecipes.forEach((recipe) => {
       tagList.forEach((f) => {
@@ -211,11 +156,6 @@ export function addTag(tagType, tag) {
       });
     });
 
-    // const activeRecipes = dataRecipes.filter(
-    //   (recipe) => recipe.htmlTag.style.display == "flex"
-    // );
-    // console.log(activeRecipes);
-    // reload quand le tableau est vide
     if (tagList.length === 0) {
       window.location.reload();
     }
@@ -225,8 +165,6 @@ export function addTag(tagType, tag) {
 
 
 function init() {
-  //console.log(dataRecipes);
-  for(const recipe of dataRecipes) recipe.visible = true;
   displayRecipes(dataRecipes);
   listenerCategories();
 }
