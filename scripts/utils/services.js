@@ -18,8 +18,6 @@ export function listOfIngredients(allRecipes) {
     return cleanIngredients
 }
 
-//console.log("1", listOfIngredients(dataRecipes))
-
 //* ///////////////////////////////////////////////////////////////////////////////////////////////////////
 
 export function listOfAppliances(allRecipes) {
@@ -33,8 +31,6 @@ export function listOfAppliances(allRecipes) {
     cleanAppliances.sort((a, b) => a.localeCompare(b))
     return cleanAppliances
 }
-
-//console.log("1", listOfAppliances(dataRecipes))
 
 ////* ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -53,5 +49,4 @@ export function listOfUstensils(allRecipes) {
     return cleanUstensils
 }
 
-//console.log("1", listOfUstensils(dataRecipes))
 

@@ -1,11 +1,8 @@
 import { dataRecipes } from "../data/recipes.js";
 import { recipesFactory } from "./factories/recipes.js";
-import { listenerCategories } from "./categories.js";
+import { listenerCategories, addListItems, setFilteredRecipes } from "./categories.js";
 
-
-//console.log(dataRecipes);
 const searchInputRecipes = document.querySelector("#search");
-//const searchResult = document.querySelector(".section__recipes");
 const noResult = document.querySelector(".no__result");
 
 //affiche les recette
@@ -20,8 +17,6 @@ export function displayRecipes(recipes) {
   });
 }
 
-
-
 //search bar
 searchInputRecipes.addEventListener("input", (e) => {
   const searchedString = e.target.value.toLowerCase().replace(/\s/g, "");
@@ -29,7 +24,6 @@ searchInputRecipes.addEventListener("input", (e) => {
 });
 
 function filterRecipe (searchedString) {
-  
   if (searchedString.length > 2) {
     const filterArray = dataRecipes.filter(
       (recipe) =>
@@ -38,30 +32,38 @@ function filterRecipe (searchedString) {
         .toLowerCase()
         .includes(searchedString)) ||
       (recipe.description.toLowerCase().includes(searchedString))
-      );
+    );
+
     
     
     dataRecipes.forEach((f) => {
       f.htmlTag.style.display = "none";
+
     })
 
     filterArray.forEach((recipe) => {  
-      recipe.htmlTag.style.display = "flex";     
+      recipe.htmlTag.style.display = "flex";
+      
     })
-    
+
+    const listContainerIngredients = document.querySelector(
+      ".list__filter--ingredients"
+    );
+    setFilteredRecipes(filterArray)
+    addListItems()
+    console.log(listContainerIngredients);
+
     if (filterArray.length === 0) {
         noResult.className = "cat__actif";
     }
-}
+  }
 
   if (searchedString.length == 0) {
     window.location.reload();
   }
 }
 
-
-let tagList = [];
-
+export let tagList = [];
 
 function matchTextSearch(recipe) {
   const text = searchInputRecipes.value;
@@ -88,7 +90,7 @@ function matchTextSearch(recipe) {
   return true;
 }
 
-function containsTag(tag, recipe) {
+export function containsTag(tag, recipe) {
   switch (tag.tagType) {
     case "ingredient":
       const findIngredient = recipe.ingredients.find(
@@ -108,7 +110,6 @@ function containsTag(tag, recipe) {
     default:
       console.log("pas trouvé");
   }
-  
 }
 
 export function addTag(tagType, tag) {
@@ -120,7 +121,9 @@ export function addTag(tagType, tag) {
   tagElement.innerHTML = tagText + `<img src="assets/close tag.svg"/> `;
   tagElement.className = tagType + " tag";
   searchTag.appendChild(tagElement);
-
+  
+  console.log(tagList);
+  
   //recherche par tag
   dataRecipes.forEach((recipe) => {
     tagList.forEach((f) => {
@@ -162,10 +165,9 @@ export function addTag(tagType, tag) {
   });
 }
 
-
-
 function init() {
   displayRecipes(dataRecipes);
+  setFilteredRecipes(dataRecipes);
   listenerCategories();
 }
 

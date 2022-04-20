@@ -4,8 +4,13 @@ import {
   listOfUstensils,
 } from "./utils/services.js";
 import { dataRecipes } from "../data/recipes.js";
-import { addTag} from "./index.js";
+import { addTag } from "./index.js";
 
+let filteredRecipes = []
+
+export function setFilteredRecipes(recipes) {
+  filteredRecipes = recipes
+}
 
 export function listenerCategories() {
   const btnIngredients = document.querySelector(".ingredients__button--btn");
@@ -84,7 +89,7 @@ export function listenerCategories() {
   });
 }
 
-function addListItems() {
+export function addListItems() {
   const listContainerIngredients = document.querySelector(
     ".list__filter--ingredients"
   );
@@ -100,16 +105,15 @@ function addListItems() {
   );
   listContainerUstensils.innerHTML = "";
 
-  
   //---------------------------------Ingredients----------------------------------------
   
-  const ingredients = listOfIngredients(dataRecipes).map((ingredient) => ({
+  const ingredients = listOfIngredients(filteredRecipes || dataRecipes).map((ingredient) => ({
     ingredient,
   }));
 
   ingredients.forEach((ingredient) => {
     const li = document.createElement("li");
-    li.textContent = ingredient.ingredient;
+    li.textContent = ingredient.ingredient; 
     li.className = "list__item";
     li.setAttribute("data-name", ingredient);
     li.setAttribute("data-set", "ingredients");
@@ -137,7 +141,9 @@ function addListItems() {
 
   //---------------------------------Appliances----------------------------------------
 
-  const appliances = listOfAppliances(dataRecipes).map((appliance) => ({
+
+  
+  const appliances = listOfAppliances(filteredRecipes || dataRecipes).map((appliance) => ({
     appliance,
   }));
 
@@ -169,7 +175,7 @@ function addListItems() {
 
   //---------------------------------Ustensils----------------------------------------
 
-  const ustensils = listOfUstensils(dataRecipes).map((ustensil) => ({
+  const ustensils = listOfUstensils(filteredRecipes || dataRecipes).map((ustensil) => ({
     ustensil,
   }));
 
@@ -198,4 +204,4 @@ function addListItems() {
       }
     });
   });
-}
+};
