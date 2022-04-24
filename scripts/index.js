@@ -23,6 +23,7 @@ searchInputRecipes.addEventListener("input", (e) => {
   filterRecipe(searchedString)
 });
 
+//algorithme functional
 function filterRecipe (searchedString) {
   if (searchedString.length > 2) {
     const filterArray = dataRecipes.filter(
@@ -34,27 +35,19 @@ function filterRecipe (searchedString) {
       (recipe.description.toLowerCase().includes(searchedString))
     );
 
-    
-    
     dataRecipes.forEach((f) => {
       f.htmlTag.style.display = "none";
-
     })
 
     filterArray.forEach((recipe) => {  
       recipe.htmlTag.style.display = "flex";
-      
     })
 
-    const listContainerIngredients = document.querySelector(
-      ".list__filter--ingredients"
-    );
     setFilteredRecipes(filterArray)
     addListItems()
-    console.log(listContainerIngredients);
 
     if (filterArray.length === 0) {
-        noResult.className = "cat__actif";
+      noResult.className = "cat__actif";
     }
   }
 
@@ -90,7 +83,7 @@ function matchTextSearch(recipe) {
   return true;
 }
 
-export function containsTag(tag, recipe) {
+function containsTag(tag, recipe) {
   switch (tag.tagType) {
     case "ingredient":
       const findIngredient = recipe.ingredients.find(
@@ -121,8 +114,6 @@ export function addTag(tagType, tag) {
   tagElement.innerHTML = tagText + `<img src="assets/close tag.svg"/> `;
   tagElement.className = tagType + " tag";
   searchTag.appendChild(tagElement);
-  
-  console.log(tagList);
   
   //recherche par tag
   dataRecipes.forEach((recipe) => {
@@ -158,12 +149,12 @@ export function addTag(tagType, tag) {
         }
       });
     });
-
     if (tagList.length === 0) {
       window.location.reload();
     }
   });
 }
+
 
 function init() {
   displayRecipes(dataRecipes);
