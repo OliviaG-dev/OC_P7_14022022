@@ -23,7 +23,7 @@ searchInputRecipes.addEventListener("input", (e) => {
   filterRecipe(searchedString)
 });
 
-//algorithme functional
+//algorithme imperative
 function filterRecipe (searchedString) {
   if (searchedString.length > 2) {
     const filterArray = dataRecipes.filter(
