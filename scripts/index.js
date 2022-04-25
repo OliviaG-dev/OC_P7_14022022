@@ -25,16 +25,20 @@ searchInputRecipes.addEventListener("input", (e) => {
 
 //algorithme imperative
 function filterRecipe (searchedString) {
+  const filterArray = []
   if (searchedString.length > 2) {
-    const filterArray = dataRecipes.filter(
-      (recipe) =>
-      recipe.name.toLowerCase().includes(searchedString) ||
-      recipe.ingredients.find((ingredient) => ingredient.ingredient
-        .toLowerCase()
-        .includes(searchedString)) ||
-      (recipe.description.toLowerCase().includes(searchedString))
-    );
-
+      for (let i = 0 ; i < dataRecipes.length ; i++) {
+        if (
+          dataRecipes[i].name.toLowerCase().includes(searchedString) ||
+          dataRecipes[i].ingredients.find((ingredient) => ingredient.ingredient
+            .toLowerCase()
+            .includes(searchedString)) ||
+          dataRecipes[i].description.toLowerCase().includes(searchedString)
+          ){
+            filterArray.push(dataRecipes[i])
+          }
+      }
+    
     dataRecipes.forEach((f) => {
       f.htmlTag.style.display = "none";
     })
@@ -62,7 +66,7 @@ function matchTextSearch(recipe) {
   const text = searchInputRecipes.value;
   if (text.length > 2) {
     if (
-      recipe.description.toLowerCase().includes(text.toLowerCase()) ||
+      recipe.description.toLowerCase().includes(text.toLowerCase()) || 
       recipe.name.toLowerCase().includes(text.toLowerCase()) ||
       recipe.appliance.toLowerCase().includes(text.toLowerCase())
     )
