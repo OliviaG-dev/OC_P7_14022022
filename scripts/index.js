@@ -27,20 +27,20 @@ searchInputRecipes.addEventListener("input", (e) => {
 function filterRecipe (searchedString) {
   const filterArray = []
   if (searchedString.length > 2) {
-      for (let i = 0 ; i < dataRecipes.length ; i++) {
-        if (
-          dataRecipes[i].name.toLowerCase().includes(searchedString) ||
-          dataRecipes[i].ingredients.find((ingredient) => ingredient.ingredient
-            .toLowerCase()
-            .includes(searchedString)) ||
-          dataRecipes[i].description.toLowerCase().includes(searchedString)
-          ){
-            filterArray.push(dataRecipes[i])
-          }
-      }
+    for (let i = 0 ; i < dataRecipes.length ; i++) {
+      if (
+        dataRecipes[i].name.toLowerCase().includes(searchedString) ||
+        dataRecipes[i].ingredients.find((ingredient) => ingredient.ingredient
+          .toLowerCase()
+          .includes(searchedString)) ||
+        dataRecipes[i].description.toLowerCase().includes(searchedString)
+        ){
+          filterArray.push(dataRecipes[i])
+        }
+    }
     
     for (const recipe of dataRecipes) {
-        recipe.htmlTag.style.display = "none";
+      recipe.htmlTag.style.display = "none";
     }
 
     for (const recipe of filterArray) {
