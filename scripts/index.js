@@ -39,13 +39,13 @@ function filterRecipe (searchedString) {
           }
       }
     
-    dataRecipes.forEach((f) => {
-      f.htmlTag.style.display = "none";
-    })
+    for (const recipe of dataRecipes) {
+        recipe.htmlTag.style.display = "none";
+    }
 
-    filterArray.forEach((recipe) => {  
+    for (const recipe of filterArray) {
       recipe.htmlTag.style.display = "flex";
-    })
+    }
 
     setFilteredRecipes(filterArray)
     addListItems()
