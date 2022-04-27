@@ -117,15 +117,22 @@ export function addTag(tagType, tag) {
   
   //recherche par tag
   dataRecipes.forEach((recipe) => {
+    let remainTags = tagList.length
     tagList.forEach((f) => {
       if (containsTag(f, recipe) && matchTextSearch(recipe)) {
-        recipe.htmlTag.style.display = "flex";
-        recipe.visible = true;
-      } else {
-        recipe.htmlTag.style.display = "none";
-        recipe.visible = false;
-      }
+        remainTags--
+      } 
     });
+  
+    if (remainTags == 0) {
+      recipe.htmlTag.style.display = "flex";
+      recipe.visible = true;
+
+    } else {
+      recipe.htmlTag.style.display = "none";
+      recipe.visible = false;
+      noResult.className = "cat__actif";
+    }
   });
 
   //remove TAG

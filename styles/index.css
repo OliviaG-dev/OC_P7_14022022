@@ -71,7 +71,7 @@ main {
 .ingredients__button,
 .ustensils__button {
     width: 10.6rem;
-    height: 3.5rem;
+    height: 4.3rem;
     border-radius: 0.3rem;
     margin-right: 0.8rem;
     margin-bottom: 0.8rem;
@@ -204,16 +204,16 @@ main {
     border-radius: 0.3rem;
     padding: 0.6rem 0.9rem;
     display: flex;
-    flex-direction: inline;
-    margin:0.3rem;
+    align-items: center;
+    margin: 0.3rem;
     color:  #ffffff; 
-    vertical-align: middle;
     margin-top: 0.9rem;
     font-family: 'Lato', sans-serif;
+    font-weight: 600;
 }
+
 .tag img{
     pointer-events: none;
-    vertical-align: middle;
     margin-left: 0.5rem;
 }
 
