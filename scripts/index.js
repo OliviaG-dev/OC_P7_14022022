@@ -138,10 +138,10 @@ export function addTag(tagType, tag) {
     if (remainTags == 0) {
       recipe.htmlTag.style.display = "flex";
       recipe.visible = true;
-
     } else {
       recipe.htmlTag.style.display = "none";
       recipe.visible = false;
+      noResult.className = "cat__actif";
     }
   });
   console.log(tagList);
