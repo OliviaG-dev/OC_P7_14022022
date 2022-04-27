@@ -23,6 +23,15 @@ searchInputRecipes.addEventListener("input", (e) => {
   filterRecipe(searchedString)
 });
 
+function findMe (ingredients, searchedString) {
+  for (const ingredient of ingredients) {
+    if (ingredient.ingredient
+      .toLowerCase()
+      .includes(searchedString)) return ingredient
+  } 
+  return null
+}
+
 //algorithme imperative
 function filterRecipe (searchedString) {
   const filterArray = []
@@ -30,9 +39,7 @@ function filterRecipe (searchedString) {
     for (let i = 0 ; i < dataRecipes.length ; i++) {
       if (
         dataRecipes[i].name.toLowerCase().includes(searchedString) ||
-        dataRecipes[i].ingredients.find((ingredient) => ingredient.ingredient
-          .toLowerCase()
-          .includes(searchedString)) ||
+          findMe(dataRecipes[i].ingredients, searchedString) ||
         dataRecipes[i].description.toLowerCase().includes(searchedString)
         ){
           filterArray.push(dataRecipes[i])
@@ -121,16 +128,23 @@ export function addTag(tagType, tag) {
   
   //recherche par tag
   dataRecipes.forEach((recipe) => {
+    let remainTags = tagList.length
     tagList.forEach((f) => {
       if (containsTag(f, recipe) && matchTextSearch(recipe)) {
-        recipe.htmlTag.style.display = "flex";
-        recipe.visible = true;
-      } else {
-        recipe.htmlTag.style.display = "none";
-        recipe.visible = false;
-      }
+        remainTags--
+      } 
     });
+  
+    if (remainTags == 0) {
+      recipe.htmlTag.style.display = "flex";
+      recipe.visible = true;
+
+    } else {
+      recipe.htmlTag.style.display = "none";
+      recipe.visible = false;
+    }
   });
+  console.log(tagList);
 
   //remove TAG
   tagElement.addEventListener("click", (e) => {
