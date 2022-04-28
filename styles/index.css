@@ -29,7 +29,7 @@ main {
 
 /* -------------------Search Bar---------------------- */
 #search {
-    width: 100%;
+    width: calc(100% - 1.5rem);
     height: 4.3rem;
     border-radius: 0.5rem;
     background-color: #E7E7E7;
@@ -39,9 +39,6 @@ main {
     background-position: 99% 50%;
     background-size: 2rem;
     border: none;
-}
-
-#search::placeholder {
     padding-left: 1.5rem;
 }
 
