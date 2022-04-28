@@ -29,7 +29,7 @@ main {
 
 /* -------------------Search Bar---------------------- */
 #search {
-    width: 100%;
+    width: calc(100% - 1.5rem);
     height: 4.3rem;
     border-radius: 0.5rem;
     background-color: #E7E7E7;
@@ -52,6 +52,8 @@ main {
     display: flex;
     margin-top: 0.93rem;
     flex-wrap: wrap;
+    position: absolute;
+    z-index: 1;
 }
 
 .ingredients__button--container,
@@ -222,7 +224,7 @@ main {
     display: flex;
     flex-wrap: wrap;
     justify-content:space-between;
-    margin-top: 1rem;
+    margin-top: 6rem;
 }
 
 .recipe__container {
@@ -332,6 +334,7 @@ main {
     
     .section__recipes {
         width: 80%;
+        margin-top: 0.3rem;
     }
 
     #search {
@@ -340,7 +343,6 @@ main {
         justify-content: center;
         align-items: center;
         padding: 0 1rem 0 1rem;
-        /* background-position: 90% 50%; */
     }
 
     .recipe__container {
@@ -382,6 +384,7 @@ main {
 
     .search__categories {
         justify-content: center;
+        position: relative;
     }
 
     .categories__ingredients--active, .categories__ustensils--active, .categories__appliances--active {
@@ -400,9 +403,17 @@ main {
 
 /* -------------------tablette---------------------- */
 
-@media only screen and (min-width: 610px) and (max-width: 1045px) {
+@media only screen and (min-width: 550px) and (max-width: 1045px) {
 
     .recipe__container {
         width: 100%;
+    }
+
+    .search__categories {
+        position:relative
+    }
+
+    .section__recipes {
+        margin-top: 0.3rem;
     }
 }

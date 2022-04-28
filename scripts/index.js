@@ -131,7 +131,6 @@ export function addTag(tagType, tag) {
     } else {
       recipe.htmlTag.style.display = "none";
       recipe.visible = false;
-      noResult.className = "cat__actif";
     }
   });
 
@@ -146,15 +145,21 @@ export function addTag(tagType, tag) {
 
     //ici remettre la recherche par tag
     dataRecipes.forEach((recipe) => {
+      let remainTags = tagList.length
       tagList.forEach((f) => {
         if (containsTag(f, recipe) && matchTextSearch(recipe)) {
-          recipe.htmlTag.style.display = "flex";
-          recipe.visible = true;
-        } else {
-          recipe.htmlTag.style.display = "none";
-          recipe.visible = false;
-        }
+          remainTags--
+        } 
       });
+    
+      if (remainTags == 0) {
+        recipe.htmlTag.style.display = "flex";
+        recipe.visible = true;
+  
+      } else {
+        recipe.htmlTag.style.display = "none";
+        recipe.visible = false;
+      }
     });
     if (tagList.length === 0) {
       window.location.reload();
